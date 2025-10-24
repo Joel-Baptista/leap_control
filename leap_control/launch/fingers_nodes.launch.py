@@ -7,27 +7,33 @@ from launch_ros.actions import Node
 def generate_launch_description():
     return LaunchDescription([
         Node(
-            package='leap_hand_control',
+            package='leap_control',
             executable='ring_manager',
             name='ring_node',
             output='screen'
         ),
         Node(
-            package='leap_hand_control',
+            package='leap_control',
             executable='middle_manager',
             name='middle_node',
             output='screen'
         ),
         Node(
-            package='leap_hand_control',
+            package='leap_control',
             executable='index_manager',
             name='index_node',
             output='screen'
         ),
         Node(
-            package='leap_hand_control',
+            package='leap_control',
             executable='thumb_manager',
             name='thumb_node',
+            output='screen'
+        ),
+        Node(
+            package='leap_control',
+            executable='hand_manager',
+            name='manager_node',
             output='screen'
         ),
     ])

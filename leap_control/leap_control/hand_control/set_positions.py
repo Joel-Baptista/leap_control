@@ -57,6 +57,7 @@ def main(args=None):
     
     try:
         while rclpy.ok():
+            print("AAAAAAAAAAAAAAAHHHHHHHHHHHHHHHHHHH")
             input_str = input("Introduzir o dedo e as posições (ex: middle 2048 2048 2048 2048) ou comando (ex: thumb close): ").strip()
             input_parts = input_str.split()
 
