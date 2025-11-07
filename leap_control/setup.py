@@ -40,6 +40,7 @@ setup(
             'finger_grasping = leap_control.one_finger_control.grasping_node:main',
             'hand_manager = leap_control.hand_control.manager_node:main',
             'set_fingers_position = leap_control.hand_control.set_positions:main',
+            'pick_up_demo = leap_control.demos.pick_up_demo:main',
             'middle_manager = leap_control.hand_control.middle_node:main',
             'thumb_manager = leap_control.hand_control.thumb_node:main',
             'index_manager = leap_control.hand_control.index_node:main',

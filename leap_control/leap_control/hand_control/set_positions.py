@@ -88,7 +88,6 @@ def main(args=None):
 
                     node.publish_ordered_positions(data_to_send)
                     
-                    
                 elif command == "open":
 
                     if len(input_parts) > 2:
@@ -98,7 +97,7 @@ def main(args=None):
                     # Enviar posições de abertura
                     data_to_send = [
                         [finger_names.index("middle"), 2048, 2048, 2048, 2048,offsets[1]],
-                        [finger_names.index("thumb"), 2048, 1024, 2048, 2048,offsets[3]],
+                        [finger_names.index("thumb"), 2048, 5120, 2048, 2048,offsets[3]],
                         [finger_names.index("index"), 2048, 2048, 2048, 2048,offsets[0]],
                         [finger_names.index("ring"), 2048, 2048, 2048, 2048,offsets[2]],
                         #[finger_names.index("thumb"), 2550, 630, 2935, 3030]
@@ -132,7 +131,7 @@ def main(args=None):
 
                 data_to_send = [
                         [finger_names.index("middle"), 2048, 2048, 2048, 2048,offsets[1]],
-                        [finger_names.index("thumb"), 2048, 1024, 2048, 2048,offsets[3]],
+                        [finger_names.index("thumb"), 2048, 5120, 2048, 2048,offsets[3]],
                         [finger_names.index("index"), 2048, 2048, 2048, 2048,offsets[0]],
                         [finger_names.index("ring"), 2048, 2048, 2048, 2048,offsets[2]],
                         #[finger_names.index("thumb"), 2550, 630, 2935, 3030]
@@ -158,7 +157,7 @@ def main(args=None):
 
                 data_to_send = [
                         [finger_names.index("middle"), 2048, 2048, 2048, 2048,offsets[1]],
-                        [finger_names.index("thumb"), 2048, 1024, 2048, 2048,offsets[3]],
+                        [finger_names.index("thumb"), 2048, 5120, 2048, 2048,offsets[3]],
                         [finger_names.index("index"), 2048, 2048, 2048, 2048,offsets[0]],
                         [finger_names.index("ring"), 2048, 2048, 2048, 2048,offsets[2]],
                         #[finger_names.index("thumb"), 2550, 630, 2935, 3030]
@@ -169,7 +168,7 @@ def main(args=None):
 
                 data_to_send = [
                         [finger_names.index("middle"), 2048, 2048, 2048, 2048,offsets[1]],
-                        [finger_names.index("thumb"), 2048, 1024, 2048, 2048,offsets[3]],
+                        [finger_names.index("thumb"), 2048, 5120, 2048, 2048,offsets[3]],
                         [finger_names.index("index"), 2048, 2048, 2048, 2048,offsets[0]],
                         [finger_names.index("ring"), 2048, 2048, 2048, 2048,offsets[2]],
                         #[finger_names.index("thumb"), 2550, 630, 2935, 3030]
@@ -182,23 +181,24 @@ def main(args=None):
                 offsets = [500,500,500,0]
                 data_to_send = [
                         [finger_names.index("middle"), 3486, 2048, 2369, 2929, offsets[1]],
-                        [finger_names.index("thumb"), 3016, 591, 2980, 2483, offsets[3]],
+                        [finger_names.index("thumb"), 3000, 1300, 3000, 2500, offsets[3]],
+                        # [finger_names.index("thumb"), 3016, 591, 2980, 2483, offsets[3]],
                         [finger_names.index("index"), 3486, 2048, 2369, 2929, offsets[0]],
                         [finger_names.index("ring"), 3486, 2048, 2369, 2929, offsets[2]],
                         #[finger_names.index("thumb"), 2550, 630, 2935, 3030]
                     ]
                 
+
+                # time.sleep(2)
                 node.publish_ordered_positions(data_to_send)
 
-
-                time.sleep(2)
-
+                input("Press ENTER...")
 
                 offsets = [0,0,0,500]
 
                 data_to_send = [
                         [finger_names.index("middle"), 2048, 2048, 2048, 2048,offsets[1]],
-                        [finger_names.index("thumb"), 2048, 1024, 2048, 2048,offsets[3]],
+                        [finger_names.index("thumb"), 2048, 5120, 2048, 2048,offsets[3]],
                         [finger_names.index("index"), 2048, 2048, 2048, 2048,offsets[0]],
                         [finger_names.index("ring"), 2048, 2048, 2048, 2048,offsets[2]],
                         #[finger_names.index("thumb"), 2550, 630, 2935, 3030]
@@ -207,26 +207,69 @@ def main(args=None):
             
             elif len(input_parts) == 1 and input_parts[0].lower() == "2":
                 node.publish_class(2)
-                offsets = [0,0,0,800]
+                offsets = [0,0,0,300]
                 data_to_send = [
                         [finger_names.index("middle"), 3486, 2048, 2369, 2929, offsets[1]],
-                        [finger_names.index("thumb"), 3016, 591, 2980, 2483, offsets[3]],
+                        # [finger_names.index("thumb"), 2550, 630, 2935, 3030, offsets[3]],
+                        [finger_names.index("thumb"), 3000, 1300, 3000, 2500, offsets[3]],
                         [finger_names.index("index"), 3486, 2048, 2369, 2929, offsets[0]],
                         [finger_names.index("ring"), 3486, 2048, 2369, 2929, offsets[2]],
-                        #[finger_names.index("thumb"), 2550, 630, 2935, 3030]
+                        # [finger_names.index("thumb"), 3016, 591, 2980, 2483, offsets[3]],
                     ]
                 
+                time.sleep(2.0)
                 node.publish_ordered_positions(data_to_send)
 
-
-                time.sleep(2)
-                
-
-                offsets = [500,500,500,0]
+                input("Press ENTER...")
+            
+                offsets = [0, 0, 0,500]
 
                 data_to_send = [
                         [finger_names.index("middle"), 2048, 2048, 2048, 2048,offsets[1]],
-                        [finger_names.index("thumb"), 2048, 1024, 2048, 2048,offsets[3]],
+                        [finger_names.index("thumb"), 2048, 5120, 2048, 2048,offsets[3]],
+                        [finger_names.index("index"), 2048, 2048, 2048, 2048,offsets[0]],
+                        [finger_names.index("ring"), 2048, 2048, 2048, 2048,offsets[2]],
+                        #[finger_names.index("thumb"), 2550, 630, 2935, 3030]
+                    ]
+                node.publish_ordered_positions(data_to_send)
+
+            elif len(input_parts) == 1 and input_parts[0].lower() == "4":
+                node.publish_class(1)
+                offsets = [0,0,0,0]
+                data_to_send = [
+                        [finger_names.index("middle"), 2800, 2048, 2048, 2048, offsets[1]],
+                        [finger_names.index("thumb"), 4000, 4000, 2048, 2048, offsets[3]],
+                        # [finger_names.index("thumb"), 3016, 591, 2980, 2483, offsets[3]],
+                        [finger_names.index("index"), 2800, 2048, 2048, 2048, offsets[0]],
+                        [finger_names.index("ring"), 2800, 2048, 2048, 2048, offsets[2]],
+                        #[finger_names.index("thumb"), 2550, 630, 2935, 3030]
+                    ]
+                
+
+                time.sleep(0.5)
+                node.publish_ordered_positions(data_to_send)
+
+                offsets = [0,0,0,0]
+                data_to_send = [
+                        [finger_names.index("middle"), 2800, 2048, 3500, 2048, offsets[1]],
+                        [finger_names.index("thumb"), 4000, 4500, 2048, 3000, offsets[3]],
+                        # [finger_names.index("thumb"), 3016, 591, 2980, 2483, offsets[3]],
+                        [finger_names.index("index"), 2800, 2048, 3500, 2048, offsets[0]],
+                        [finger_names.index("ring"), 2800, 2048, 3500, 2048, offsets[2]],
+                        #[finger_names.index("thumb"), 2550, 630, 2935, 3030]
+                    ]
+                
+
+                time.sleep(2)
+                node.publish_ordered_positions(data_to_send)
+
+                input("Press ENTER...")
+
+                offsets = [0,0,0,0]
+
+                data_to_send = [
+                        [finger_names.index("middle"), 2048, 2048, 2048, 2048,offsets[1]],
+                        [finger_names.index("thumb"), 2048, 5120, 2048, 2048,offsets[3]],
                         [finger_names.index("index"), 2048, 2048, 2048, 2048,offsets[0]],
                         [finger_names.index("ring"), 2048, 2048, 2048, 2048,offsets[2]],
                         #[finger_names.index("thumb"), 2550, 630, 2935, 3030]
@@ -254,7 +297,7 @@ def main(args=None):
                     if finger_name == "middle":
                         positions = [2048, 2048, 2048, 2048]
                     elif finger_name == "thumb":
-                        positions = [2048, 1024, 2048, 2048]
+                        positions = [2048, 5120, 2048, 2048]
                     elif finger_name == "index":
                         positions = [2048, 2048, 2048, 2048]
                     elif finger_name == "ring":
