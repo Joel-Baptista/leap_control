@@ -60,3 +60,8 @@ source install/setup.bash
 
 ## Testing
 
+## References
+
+- URDFs and .stl files in "leap_description/assets" imported from [here](https://github.com/leap-hand/LEAP_Hand_Sim)
+- Leap Hand comes from the published worked described [here](https://v1.leaphand.com/)
+
