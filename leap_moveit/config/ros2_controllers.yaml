@@ -1,0 +1,120 @@
+# This config file is used by ros2_control
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Hz
+
+    index_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    leap_hand:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    middle_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    thumb_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    ring_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+index_controller:
+  ros__parameters:
+    joints:
+      - 0
+      - 1
+      - 2
+      - 3
+    command_interfaces:
+      - position
+      - velocity
+      - effort
+    state_interfaces:
+      - position
+      - velocity
+      - effort
+    allow_nonzero_velocity_at_trajectory_end: true
+leap_hand:
+  ros__parameters:
+    joints:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 12
+      - 13
+      - 14
+      - 15
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+      - 11
+    command_interfaces:
+      - position
+      - velocity
+      - effort
+    state_interfaces:
+      - position
+      - velocity
+      - effort
+    allow_nonzero_velocity_at_trajectory_end: true
+middle_controller:
+  ros__parameters:
+    joints:
+      - 4
+      - 5
+      - 6
+      - 7
+    command_interfaces:
+      - position
+      - velocity
+      - effort
+    state_interfaces:
+      - position
+      - velocity
+      - effort
+    allow_nonzero_velocity_at_trajectory_end: true
+thumb_controller:
+  ros__parameters:
+    joints:
+      - 12
+      - 13
+      - 14
+      - 15
+    command_interfaces:
+      - position
+      - velocity
+      - effort
+    state_interfaces:
+      - position
+      - velocity
+      - effort
+    allow_nonzero_velocity_at_trajectory_end: true
+ring_controller:
+  ros__parameters:
+    joints:
+      - 8
+      - 9
+      - 10
+      - 11
+    command_interfaces:
+      - position
+      - velocity
+      - effort
+    state_interfaces:
+      - position
+      - velocity
+      - effort
+    allow_nonzero_velocity_at_trajectory_end: true

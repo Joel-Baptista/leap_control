@@ -1,0 +1,9 @@
+finger_nodes:
+  - ring
+  - middle
+  - index
+  - thumb
+
+finger_params:
+  goal_current_value: 300
+  grasping_current_value: 100
