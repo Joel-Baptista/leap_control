@@ -160,7 +160,7 @@
         <parent link="palm_lower" />
         <child link="thumb_semi_palm_1" />
         <axis xyz="0 0 -1" />
-        <limit effort="0.95" velocity="8.48" lower="-0.349" upper="2.094" />
+        <limit effort="0.95" velocity="8.48" acceleration="20.0" lower="-0.349" upper="2.094" />
         <joint_properties friction="0.0" />
     </joint>
 
@@ -170,7 +170,7 @@
         <parent link="thumb_semi_palm_1" />
         <child link="thumb_semi_palm_2" />
         <axis xyz="0 0 -1" />
-        <limit effort="0.95" velocity="8.48" lower="-2.47" upper="2.443" />
+        <limit effort="0.95" velocity="8.48" acceleration="20.0" lower="-2.47" upper="2.443" />
         <joint_properties friction="0.0" />
     </joint>
 
@@ -180,7 +180,7 @@
         <parent link="thumb_semi_palm_2" />
         <child link="thumb_middle_phalanx" />
         <axis xyz="0 0 -1" />
-        <limit effort="0.95" velocity="8.48" lower="-1.20" upper="1.90" />
+        <limit effort="0.95" velocity="8.48" acceleration="20.0" lower="-1.20" upper="1.90" />
         <joint_properties friction="0.0" />
     </joint>
 
@@ -190,7 +190,7 @@
         <parent link="thumb_middle_phalanx" />
         <child link="thumb_distal_phalanx" />
         <axis xyz="0 0 -1" />
-        <limit effort="0.95" velocity="8.48" lower="-1.34" upper="1.88" />
+        <limit effort="0.95" velocity="8.48" acceleration="20.0" lower="-1.34" upper="1.88" />
         <joint_properties friction="0.0" />
     </joint>
 

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="leap">
+    <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
+
+    <!-- Import leap urdf file -->
+    <xacro:include filename="$(find leap_description)/assets/leap_hand/robot.urdf.xacro" />
+
+    <!-- Import control_xacro -->
+    <xacro:include filename="leap.ros2_control.xacro" />
+
+
+    <xacro:leap_ros2_control name="FakeSystem" initial_positions_file="$(arg initial_positions_file)"/>
+
+</robot>

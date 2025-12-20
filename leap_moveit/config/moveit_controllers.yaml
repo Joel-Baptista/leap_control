@@ -3,67 +3,42 @@
 moveit_controller_manager: moveit_simple_controller_manager/MoveItSimpleControllerManager
 
 moveit_simple_controller_manager:
+  action_ns: follow_joint_trajectory
   controller_names:
-    - index
-    - middle
-    - thumb
-    - ring
-    - leap_hand
+    - index_controller
+    - middle_controller
+    - ring_controller
+    - thumb_controller
 
-  index:
+  index_controller:
     type: FollowJointTrajectory
-    joints:
-      - 0
-      - 1
-      - 2
-      - 3
     action_ns: follow_joint_trajectory
-    default: true
-  middle:
+    joints:
+      - index_pip_flex_joint
+      - index_pip_abb_joint
+      - index_mcp_joint
+      - index_dip_joint
+  middle_controller:
     type: FollowJointTrajectory
-    joints:
-      - 4
-      - 5
-      - 6
-      - 7
     action_ns: follow_joint_trajectory
-    default: true
-  thumb:
+    joints:
+      - middle_pip_flex_joint
+      - middle_pip_abb_joint
+      - middle_mcp_joint
+      - middle_dip_joint
+  ring_controller:
     type: FollowJointTrajectory
-    joints:
-      - 12
-      - 13
-      - 14
-      - 15
     action_ns: follow_joint_trajectory
-    default: true
-  ring:
+    joints:
+      - ring_pip_flex_joint
+      - ring_pip_abb_joint
+      - ring_mcp_joint
+      - ring_dip_joint
+  thumb_controller:
     type: FollowJointTrajectory
-    joints:
-      - 8
-      - 9
-      - 10
-      - 11
     action_ns: follow_joint_trajectory
-    default: true
-  leap_hand:
-    type: FollowJointTrajectory
     joints:
-      - 0
-      - 1
-      - 2
-      - 3
-      - 12
-      - 13
-      - 14
-      - 15
-      - 4
-      - 5
-      - 6
-      - 7
-      - 8
-      - 9
-      - 10
-      - 11
-    action_ns: follow_joint_trajectory
-    default: true
+      - thumb_cmc_abb_joint
+      - thumb_cmc_flex_joint
+      - thumb_mcp_joint
+      - thumb_ip_joint

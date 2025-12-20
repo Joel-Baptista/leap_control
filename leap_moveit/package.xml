@@ -4,7 +4,7 @@
   <name>leap_moveit</name>
   <version>0.3.0</version>
   <description>
-     An automatically generated package with all the configuration and launch files for using the onshape with the MoveIt Motion Planning Framework
+     An automatically generated package with all the configuration and launch files for using the leap with the MoveIt Motion Planning Framework
   </description>
   <maintainer email="joelbaptista@ua.pt">Joel Baptista</maintainer>
 

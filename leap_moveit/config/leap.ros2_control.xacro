@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-    <xacro:macro name="onshape_ros2_control" params="name initial_positions_file">
+    <xacro:macro name="leap_ros2_control" params="name initial_positions_file">
         <xacro:property name="initial_positions" value="${xacro.load_yaml(initial_positions_file)['initial_positions']}"/>
 
         <ros2_control name="${name}" type="system">
@@ -8,165 +8,133 @@
                 <!-- By default, set up controllers for simulation. This won't work on real hardware -->
                 <plugin>mock_components/GenericSystem</plugin>
             </hardware>
-            <joint name="0">
+            <joint name="index_pip_flex_joint">
                 <command_interface name="position"/>
-                <command_interface name="velocity"/>
                 <command_interface name="effort"/>
                 <state_interface name="position">
-                  <param name="initial_value">${initial_positions['0']}</param>
+                  <param name="initial_value">${initial_positions['index_pip_flex_joint']}</param>
                 </state_interface>
                 <state_interface name="velocity"/>
-                <state_interface name="effort"/>
             </joint>
-            <joint name="1">
+            <joint name="index_pip_abb_joint">
                 <command_interface name="position"/>
-                <command_interface name="velocity"/>
                 <command_interface name="effort"/>
                 <state_interface name="position">
-                  <param name="initial_value">${initial_positions['1']}</param>
+                  <param name="initial_value">${initial_positions['index_pip_abb_joint']}</param>
                 </state_interface>
                 <state_interface name="velocity"/>
-                <state_interface name="effort"/>
             </joint>
-            <joint name="2">
+            <joint name="index_mcp_joint">
                 <command_interface name="position"/>
-                <command_interface name="velocity"/>
                 <command_interface name="effort"/>
                 <state_interface name="position">
-                  <param name="initial_value">${initial_positions['2']}</param>
+                  <param name="initial_value">${initial_positions['index_mcp_joint']}</param>
                 </state_interface>
                 <state_interface name="velocity"/>
-                <state_interface name="effort"/>
             </joint>
-            <joint name="3">
+            <joint name="index_dip_joint">
                 <command_interface name="position"/>
-                <command_interface name="velocity"/>
                 <command_interface name="effort"/>
                 <state_interface name="position">
-                  <param name="initial_value">${initial_positions['3']}</param>
+                  <param name="initial_value">${initial_positions['index_dip_joint']}</param>
                 </state_interface>
                 <state_interface name="velocity"/>
-                <state_interface name="effort"/>
             </joint>
-            <joint name="12">
+            <joint name="middle_pip_flex_joint">
                 <command_interface name="position"/>
-                <command_interface name="velocity"/>
                 <command_interface name="effort"/>
                 <state_interface name="position">
-                  <param name="initial_value">${initial_positions['12']}</param>
+                  <param name="initial_value">${initial_positions['middle_pip_flex_joint']}</param>
                 </state_interface>
                 <state_interface name="velocity"/>
-                <state_interface name="effort"/>
             </joint>
-            <joint name="13">
+            <joint name="middle_pip_abb_joint">
                 <command_interface name="position"/>
-                <command_interface name="velocity"/>
                 <command_interface name="effort"/>
                 <state_interface name="position">
-                  <param name="initial_value">${initial_positions['13']}</param>
+                  <param name="initial_value">${initial_positions['middle_pip_abb_joint']}</param>
                 </state_interface>
                 <state_interface name="velocity"/>
-                <state_interface name="effort"/>
             </joint>
-            <joint name="14">
+            <joint name="middle_mcp_joint">
                 <command_interface name="position"/>
-                <command_interface name="velocity"/>
                 <command_interface name="effort"/>
                 <state_interface name="position">
-                  <param name="initial_value">${initial_positions['14']}</param>
+                  <param name="initial_value">${initial_positions['middle_mcp_joint']}</param>
                 </state_interface>
                 <state_interface name="velocity"/>
-                <state_interface name="effort"/>
             </joint>
-            <joint name="15">
+            <joint name="middle_dip_joint">
                 <command_interface name="position"/>
-                <command_interface name="velocity"/>
                 <command_interface name="effort"/>
                 <state_interface name="position">
-                  <param name="initial_value">${initial_positions['15']}</param>
+                  <param name="initial_value">${initial_positions['middle_dip_joint']}</param>
                 </state_interface>
                 <state_interface name="velocity"/>
-                <state_interface name="effort"/>
             </joint>
-            <joint name="4">
+            <joint name="ring_pip_flex_joint">
                 <command_interface name="position"/>
-                <command_interface name="velocity"/>
                 <command_interface name="effort"/>
                 <state_interface name="position">
-                  <param name="initial_value">${initial_positions['4']}</param>
+                  <param name="initial_value">${initial_positions['ring_pip_flex_joint']}</param>
                 </state_interface>
                 <state_interface name="velocity"/>
-                <state_interface name="effort"/>
             </joint>
-            <joint name="5">
+            <joint name="ring_pip_abb_joint">
                 <command_interface name="position"/>
-                <command_interface name="velocity"/>
                 <command_interface name="effort"/>
                 <state_interface name="position">
-                  <param name="initial_value">${initial_positions['5']}</param>
+                  <param name="initial_value">${initial_positions['ring_pip_abb_joint']}</param>
                 </state_interface>
                 <state_interface name="velocity"/>
-                <state_interface name="effort"/>
             </joint>
-            <joint name="6">
+            <joint name="ring_mcp_joint">
                 <command_interface name="position"/>
-                <command_interface name="velocity"/>
                 <command_interface name="effort"/>
                 <state_interface name="position">
-                  <param name="initial_value">${initial_positions['6']}</param>
+                  <param name="initial_value">${initial_positions['ring_mcp_joint']}</param>
                 </state_interface>
                 <state_interface name="velocity"/>
-                <state_interface name="effort"/>
             </joint>
-            <joint name="7">
+            <joint name="ring_dip_joint">
                 <command_interface name="position"/>
-                <command_interface name="velocity"/>
                 <command_interface name="effort"/>
                 <state_interface name="position">
-                  <param name="initial_value">${initial_positions['7']}</param>
+                  <param name="initial_value">${initial_positions['ring_dip_joint']}</param>
                 </state_interface>
                 <state_interface name="velocity"/>
-                <state_interface name="effort"/>
             </joint>
-            <joint name="8">
+            <joint name="thumb_cmc_abb_joint">
                 <command_interface name="position"/>
-                <command_interface name="velocity"/>
                 <command_interface name="effort"/>
                 <state_interface name="position">
-                  <param name="initial_value">${initial_positions['8']}</param>
+                  <param name="initial_value">${initial_positions['thumb_cmc_abb_joint']}</param>
                 </state_interface>
                 <state_interface name="velocity"/>
-                <state_interface name="effort"/>
             </joint>
-            <joint name="9">
+            <joint name="thumb_cmc_flex_joint">
                 <command_interface name="position"/>
-                <command_interface name="velocity"/>
                 <command_interface name="effort"/>
                 <state_interface name="position">
-                  <param name="initial_value">${initial_positions['9']}</param>
+                  <param name="initial_value">${initial_positions['thumb_cmc_flex_joint']}</param>
                 </state_interface>
                 <state_interface name="velocity"/>
-                <state_interface name="effort"/>
             </joint>
-            <joint name="10">
+            <joint name="thumb_mcp_joint">
                 <command_interface name="position"/>
-                <command_interface name="velocity"/>
                 <command_interface name="effort"/>
                 <state_interface name="position">
-                  <param name="initial_value">${initial_positions['10']}</param>
+                  <param name="initial_value">${initial_positions['thumb_mcp_joint']}</param>
                 </state_interface>
                 <state_interface name="velocity"/>
-                <state_interface name="effort"/>
             </joint>
-            <joint name="11">
+            <joint name="thumb_ip_joint">
                 <command_interface name="position"/>
-                <command_interface name="velocity"/>
                 <command_interface name="effort"/>
                 <state_interface name="position">
-                  <param name="initial_value">${initial_positions['11']}</param>
+                  <param name="initial_value">${initial_positions['thumb_ip_joint']}</param>
                 </state_interface>
                 <state_interface name="velocity"/>
-                <state_interface name="effort"/>
             </joint>
 
         </ros2_control>

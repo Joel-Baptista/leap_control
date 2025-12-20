@@ -7,19 +7,15 @@ controller_manager:
       type: joint_trajectory_controller/JointTrajectoryController
 
 
-    leap_hand:
-      type: joint_trajectory_controller/JointTrajectoryController
-
-
     middle_controller:
       type: joint_trajectory_controller/JointTrajectoryController
 
 
-    thumb_controller:
+    ring_controller:
       type: joint_trajectory_controller/JointTrajectoryController
 
 
-    ring_controller:
+    thumb_controller:
       type: joint_trajectory_controller/JointTrajectoryController
 
 
@@ -29,92 +25,56 @@ controller_manager:
 index_controller:
   ros__parameters:
     joints:
-      - 0
-      - 1
-      - 2
-      - 3
+      - index_pip_flex_joint
+      - index_pip_abb_joint
+      - index_mcp_joint
+      - index_dip_joint
     command_interfaces:
       - position
-      - velocity
       - effort
     state_interfaces:
       - position
       - velocity
-      - effort
-    allow_nonzero_velocity_at_trajectory_end: true
-leap_hand:
-  ros__parameters:
-    joints:
-      - 0
-      - 1
-      - 2
-      - 3
-      - 12
-      - 13
-      - 14
-      - 15
-      - 4
-      - 5
-      - 6
-      - 7
-      - 8
-      - 9
-      - 10
-      - 11
-    command_interfaces:
-      - position
-      - velocity
-      - effort
-    state_interfaces:
-      - position
-      - velocity
-      - effort
     allow_nonzero_velocity_at_trajectory_end: true
 middle_controller:
   ros__parameters:
     joints:
-      - 4
-      - 5
-      - 6
-      - 7
+      - middle_pip_flex_joint
+      - middle_pip_abb_joint
+      - middle_mcp_joint
+      - middle_dip_joint
     command_interfaces:
       - position
-      - velocity
       - effort
     state_interfaces:
       - position
       - velocity
-      - effort
-    allow_nonzero_velocity_at_trajectory_end: true
-thumb_controller:
-  ros__parameters:
-    joints:
-      - 12
-      - 13
-      - 14
-      - 15
-    command_interfaces:
-      - position
-      - velocity
-      - effort
-    state_interfaces:
-      - position
-      - velocity
-      - effort
     allow_nonzero_velocity_at_trajectory_end: true
 ring_controller:
   ros__parameters:
     joints:
-      - 8
-      - 9
-      - 10
-      - 11
+      - ring_pip_flex_joint
+      - ring_pip_abb_joint
+      - ring_mcp_joint
+      - ring_dip_joint
     command_interfaces:
       - position
-      - velocity
       - effort
     state_interfaces:
       - position
       - velocity
+    allow_nonzero_velocity_at_trajectory_end: true
+thumb_controller:
+  ros__parameters:
+    joints:
+      - thumb_cmc_abb_joint
+      - thumb_cmc_flex_joint
+      - thumb_mcp_joint
+      - thumb_ip_joint
+    command_interfaces:
+      - position
       - effort
+    state_interfaces:
+      - position
+      - velocity
     allow_nonzero_velocity_at_trajectory_end: true
