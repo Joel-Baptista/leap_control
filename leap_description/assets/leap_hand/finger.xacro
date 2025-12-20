@@ -1,0 +1,161 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:macro name="finger_template" params="finger root x y z">
+        <link name="${finger}_proximal_phalanx_1">
+            <visual>
+                <origin
+                    xyz="0.008407 0.007766 0.014657"
+                    rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://leap_description/assets/leap_hand/proximal_phalanx_1.stl" />
+                </geometry>
+                <material name="proximal_phalanx_1_material">
+                    <color
+                        rgba="0 0 0 1.0" />
+                </material>
+            </visual>
+            <collision>
+                <origin
+                    xyz="0.008407 0.007766 0.014657"
+                    rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://leap_description/assets/leap_hand/proximal_phalanx_1.stl" />
+                </geometry>
+            </collision>
+            <inertial>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <mass value="0.044" />
+                <inertia ixx="0.000011499" ixy="0.000003049" ixz="0.000000121" iyy="0.000007796"
+                    iyz="0.000000112" izz="0.000014759" />
+            </inertial>
+        </link>
+
+        <link name="${finger}_proximal_phalanx_2">
+            <visual>
+                <origin
+                    xyz="0.009643 0.0003 0.000784"
+                    rpy="-1.570796326794896558 -1.570796326794896336 0" />
+                <geometry>
+                    <mesh filename="package://leap_description/assets/leap_hand/proximal_phalanx_2.stl" />
+                </geometry>
+                <material name="proximal_phalanx_2_material">
+                    <color
+                        rgba="0 0 0 1.0" />
+                </material>
+            </visual>
+            <collision>
+                <origin
+                    xyz="0.009643 0.0003 0.000784"
+                    rpy="-1.570796326794896558 -1.570796326794896336 0" />
+                <geometry>
+                    <mesh filename="package://leap_description/assets/leap_hand/proximal_phalanx_2.stl" />
+                </geometry>
+            </collision>
+            <inertial>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <mass value="0.032" />
+                <inertia ixx="0.000004798" ixy="0.000000012" ixz="0.000000004" iyy="0.000002862"
+                    iyz="0.000000011" izz="0.000004234" />
+            </inertial>
+        </link>
+
+        <link name="${finger}_middle_phalanx">
+            <visual>
+                <origin
+                    xyz="0.021133 -0.008432 0.009785"
+                    rpy="-3.141592653589793116 0 0" />
+                <geometry>
+                    <mesh filename="package://leap_description/assets/leap_hand/middle_phalanx.stl" />
+                </geometry>
+                <material name="middle_phalanx_material">
+                    <color
+                        rgba="0 0 0 1.0" />
+                </material>
+            </visual>
+            <collision>
+                <origin
+                    xyz="0.021133 -0.008432 0.009785"
+                    rpy="-3.141592653589793116 0 0" />
+                <geometry>
+                    <mesh filename="package://leap_description/assets/leap_hand/middle_phalanx.stl" />
+                </geometry>
+            </collision>
+            <inertial>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <mass value="0.037" />
+                <inertia ixx="0.000005542" ixy="-0.000000607" ixz="-0.000000017" iyy="0.000005727"
+                    iyz="-0.000000023" izz="0.000006682" />
+            </inertial>
+        </link>
+
+        <link name="${finger}_distal_phalanx">
+            <visual>
+                <origin
+                    xyz="0.0132864 -0.006114 0.0145"
+                    rpy="3.141592653589793116 0 0" />
+                <geometry>
+                    <mesh filename="package://leap_description/assets/leap_hand/distal_phalanx.stl" />
+                </geometry>
+                <material name="distal_phalanx_material">
+                    <color
+                        rgba="1 1 1 1.0" />
+                </material>
+            </visual>
+            <collision>
+                <origin
+                    xyz="0.013286 -0.006114 0.0145"
+                    rpy="3.141592653589793116 0 0" />
+                <geometry>
+                    <mesh filename="package://leap_description/assets/leap_hand/distal_phalanx.stl" />
+                </geometry>
+            </collision>
+            <inertial>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <mass value="0.016" />
+                <inertia ixx="0.000003368" ixy="0.000000115" ixz="0" iyy="0.000001556" iyz="0"
+                    izz="0.000002863" />
+            </inertial>
+        </link>
+
+        <joint name="${finger}_pip_flex_joint" type="revolute">
+            <origin xyz="${x} ${y} ${z}"
+                rpy="1.5707963267948950037 1.5707963267948945596 0" />
+            <parent link="${root}" />
+            <child link="${finger}_proximal_phalanx_1" />
+            <axis xyz="0 0 -1" />
+            <limit effort="0.95" velocity="8.48" lower="-0.314" upper="2.23" />
+            <joint_properties friction="0.0" />
+        </joint>
+
+        <joint name="${finger}_pip_abb_joint" type="revolute">
+            <origin xyz="-0.0122 0.0381 0.0145"
+                rpy="-1.570796326794896558 0 1.5707963267948943376" />
+            <parent link="${finger}_proximal_phalanx_1" />
+            <child link="${finger}_proximal_phalanx_2" />
+            <axis xyz="0 0 -1" />
+            <limit effort="0.95" velocity="8.48" lower="-1.047" upper="1.047" />
+            <joint_properties friction="0.0" />
+        </joint>
+
+        <joint name="${finger}_mcp_joint" type="revolute">
+            <origin xyz="0.015 0.0143 -0.013"
+                rpy="1.5707963267948958919 -1.570796326794896336 0" />
+            <parent link="${finger}_proximal_phalanx_2" />
+            <child link="${finger}_middle_phalanx" />
+            <axis xyz="0 0 -1" />
+            <limit effort="0.95" velocity="8.48" lower="-0.506" upper="1.885" />
+            <joint_properties friction="0.0" />
+        </joint>
+
+        <joint name="${finger}_dip_joint" type="revolute">
+            <origin
+                xyz="0 -0.0361 0.0002"
+                rpy="0 0 0" />
+            <parent link="${finger}_middle_phalanx" />
+            <child link="${finger}_distal_phalanx" />
+            <axis xyz="0 0 -1" />
+            <limit effort="0.95" velocity="8.48" lower="-0.366" upper="2.042" />
+            <joint_properties friction="0.0" />
+        </joint>
+    </xacro:macro>
+</robot>

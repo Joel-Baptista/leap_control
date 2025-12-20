@@ -1,22 +1,284 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="leap">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="onshape">
+
+    <xacro:arg name="controllers_yaml" default=""/>
+    
+    <ros2_control name="GazeboSimSystem" type="system">
+        <hardware>
+            <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+        </hardware>
+        <joint name="0">
+            <command_interface name="position">
+                <param name="min">-3.14</param>
+                <param name="max">3.14</param>
+            </command_interface>
+            <state_interface name="position">
+                <param name="initial_value">0.0</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+            <state_interface name="position"/>
+            <state_interface name="effort"/>
+        </joint>
+        <joint name="1">
+            <command_interface name="position">
+                <param name="min">-3.14</param>
+                <param name="max">3.14</param>
+            </command_interface>
+            <state_interface name="position">
+                <param name="initial_value">0.0</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+            <state_interface name="position"/>
+            <state_interface name="effort"/>
+        </joint>
+        <joint name="2">
+            <command_interface name="position">
+                <param name="min">-3.14</param>
+                <param name="max">3.14</param>
+            </command_interface>
+            <state_interface name="position">
+                <param name="initial_value">0.0</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+            <state_interface name="position"/>
+            <state_interface name="effort"/>
+        </joint>
+        <joint name="3">
+            <command_interface name="position">
+                <param name="min">-3.14</param>
+                <param name="max">3.14</param>
+            </command_interface>
+            <state_interface name="position">
+                <param name="initial_value">0.0</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+            <state_interface name="position"/>
+            <state_interface name="effort"/>
+        </joint>
+        <joint name="4">
+            <command_interface name="position">
+                <param name="min">-3.14</param>
+                <param name="max">3.14</param>
+            </command_interface>
+            <state_interface name="position">
+                <param name="initial_value">0.0</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+            <state_interface name="position"/>
+            <state_interface name="effort"/>
+        </joint>
+        <joint name="5">
+            <command_interface name="position">
+                <param name="min">-3.14</param>
+                <param name="max">3.14</param>
+            </command_interface>
+            <state_interface name="position">
+                <param name="initial_value">0.0</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+            <state_interface name="position"/>
+            <state_interface name="effort"/>
+        </joint>
+        <joint name="6">
+            <command_interface name="position">
+                <param name="min">-3.14</param>
+                <param name="max">3.14</param>
+            </command_interface>
+            <state_interface name="position">
+                <param name="initial_value">0.0</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+            <state_interface name="position"/>
+            <state_interface name="effort"/>
+        </joint>
+        <joint name="7">
+            <command_interface name="position">
+                <param name="min">-3.14</param>
+                <param name="max">3.14</param>
+            </command_interface>
+            <state_interface name="position">
+                <param name="initial_value">0.0</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+            <state_interface name="position"/>
+            <state_interface name="effort"/>
+        </joint>
+        <joint name="8">
+            <command_interface name="position">
+                <param name="min">-3.14</param>
+                <param name="max">3.14</param>
+            </command_interface>
+            <state_interface name="position">
+                <param name="initial_value">0.0</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+            <state_interface name="position"/>
+            <state_interface name="effort"/>
+        </joint>
+        <joint name="9">
+            <command_interface name="position">
+                <param name="min">-3.14</param>
+                <param name="max">3.14</param>
+            </command_interface>
+            <state_interface name="position">
+                <param name="initial_value">0.0</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+            <state_interface name="position"/>
+            <state_interface name="effort"/>
+        </joint>
+        <joint name="10">
+            <command_interface name="position">
+                <param name="min">-3.14</param>
+                <param name="max">3.14</param>
+            </command_interface>
+            <state_interface name="position">
+                <param name="initial_value">0.0</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+            <state_interface name="position"/>
+            <state_interface name="effort"/>
+        </joint>
+        <joint name="11">
+            <command_interface name="position">
+                <param name="min">-3.14</param>
+                <param name="max">3.14</param>
+            </command_interface>
+            <state_interface name="position">
+                <param name="initial_value">0.0</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+            <state_interface name="position"/>
+            <state_interface name="effort"/>
+        </joint>
+        <joint name="12">
+            <command_interface name="position">
+                <param name="min">-3.14</param>
+                <param name="max">3.14</param>
+            </command_interface>
+            <state_interface name="position">
+                <param name="initial_value">0.0</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+            <state_interface name="position"/>
+            <state_interface name="effort"/>
+        </joint>
+        <joint name="13">
+            <command_interface name="position">
+                <param name="min">-3.14</param>
+                <param name="max">3.14</param>
+            </command_interface>
+            <state_interface name="position">
+                <param name="initial_value">1.5707963267948958919</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+            <state_interface name="position"/>
+            <state_interface name="effort"/>
+        </joint>
+        <joint name="14">
+            <command_interface name="position">
+                <param name="min">-3.14</param>
+                <param name="max">3.14</param>
+            </command_interface>
+            <state_interface name="position">
+                <param name="initial_value">0.0</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+            <state_interface name="position"/>
+            <state_interface name="effort"/>
+        </joint>
+        <joint name="15">
+            <command_interface name="position">
+                <param name="min">-3.14</param>
+                <param name="max">3.14</param>
+            </command_interface>
+            <state_interface name="position">
+                <param name="initial_value">0.0</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+            <state_interface name="position"/>
+            <state_interface name="effort"/>
+        </joint>
+    </ros2_control>
+
+    <gazebo>
+        <plugin filename="libgz_ros2_control-system.so" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+            <!-- <parameters>$(arg controllers_yaml)</parameters> -->
+            <parameters>/home/joel/distrobox/ros2-ubuntu/leap_ws/src/leap_control/leap_sim/config/leap_controller.yaml</parameters>
+        </plugin>
+    </gazebo>
+
+    <gazebo reference="palm_lower">
+        <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="mcp_joint">
+        <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="pip">
+        <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="dip">
+        <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="fingertip">
+        <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="mcp_joint_2">
+        <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="pip_2">
+        <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="dip_2">
+        <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="fingertip_2">
+        <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="mcp_joint_3">
+        <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="pip_3">
+        <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="dip_3">
+        <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="fingertip_3">
+        <selfCollide>true</selfCollide>
+    </gazebo>
+    
+    <gazebo reference="thumb_pip">
+        <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="pip_4">
+        <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="thumb_dip">
+        <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="thumb_fingertip">
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+
     <link name="palm_lower">
         <visual>
             <origin xyz="-0.020095249652862544332 0.025757756134899473244 -0.034722403578460216134"
                 rpy="0 -0 0" />
             <geometry>
-                <mesh filename="package://leap_description/assets/leap_hand/palm_lower.stl" />
+                <mesh filename="palm_lower.stl" />
             </geometry>
             <material name="palm_lower_material">
                 <color
-                    rgba="1 1 1 1.0" />
+                    rgba="0.60392156862745094426 0.14901960784313725283 0.14901960784313725283 1.0" />
             </material>
         </visual>
         <collision>
             <origin xyz="-0.020095249652862544332 0.025757756134899473244 -0.034722403578460216134"
                 rpy="0 -0 0" />
             <geometry>
-                <mesh filename="package://leap_description/assets/leap_hand/palm_lower.stl" />
+                <mesh filename="palm_lower.stl" />
             </geometry>
         </collision>
         <inertial>
@@ -27,23 +289,23 @@
         </inertial>
     </link>
 
-    <link name="index_proximal_phalanx_1">
+    <link name="mcp_joint">
         <visual>
             <origin xyz="0.0084069022611744960438 0.0077662438597169954416 0.014657354985032912051"
                 rpy="1.6375789613220999807e-15 -1.0210473302491019535e-30 1.7177968783327987474e-31" />
             <geometry>
-                <mesh filename="package://leap_description/assets/leap_hand/mcp_joint.stl" />
+                <mesh filename="mcp_joint.stl" />
             </geometry>
             <material name="mcp_joint_material">
                 <color
-                    rgba="0 0 0 1.0" />
+                    rgba="0.86666666666666669627 0.86666666666666669627 0.050980392156862744391 1.0" />
             </material>
         </visual>
         <collision>
             <origin xyz="0.0084069022611744960438 0.0077662438597169954416 0.014657354985032912051"
                 rpy="1.6375789613220999807e-15 -1.0210473302491019535e-30 1.7177968783327987474e-31" />
             <geometry>
-                <mesh filename="package://leap_description/assets/leap_hand/mcp_joint.stl" />
+                <mesh filename="mcp_joint.stl" />
             </geometry>
         </collision>
         <inertial>
@@ -54,17 +316,17 @@
         </inertial>
     </link>
 
-    <link name="index_proximal_phalanx_2">
+    <link name="pip">
         <visual>
             <origin
                 xyz="0.0096433630922713280131 0.00029999999999998951117 0.00078403401041737645627"
                 rpy="-1.570796326794896558 -1.570796326794896336 0" />
             <geometry>
-                <mesh filename="package://leap_description/assets/leap_hand/pip.stl" />
+                <mesh filename="pip.stl" />
             </geometry>
             <material name="pip_material">
                 <color
-                    rgba="0 0 0 1.0" />
+                    rgba="0.74901960784313725839 0.74901960784313725839 0.74901960784313725839 1.0" />
             </material>
         </visual>
         <collision>
@@ -72,7 +334,7 @@
                 xyz="0.0096433630922713280131 0.00029999999999998951117 0.00078403401041737645627"
                 rpy="-1.570796326794896558 -1.570796326794896336 0" />
             <geometry>
-                <mesh filename="package://leap_description/assets/leap_hand/pip.stl" />
+                <mesh filename="pip.stl" />
             </geometry>
         </collision>
         <inertial>
@@ -83,23 +345,23 @@
         </inertial>
     </link>
 
-    <link name="index_middle_phalanx">
+    <link name="dip">
         <visual>
             <origin xyz="0.021133352895225002849 -0.0084321191467048792201 0.0097850881620952408213"
                 rpy="-3.141592653589793116 4.5075111242164408299e-32 4.4395481053923607589e-32" />
             <geometry>
-                <mesh filename="package://leap_description/assets/leap_hand/dip.stl" />
+                <mesh filename="dip.stl" />
             </geometry>
             <material name="dip_material">
                 <color
-                    rgba="0 0 0 1.0" />
+                    rgba="0.86666666666666669627 0.86666666666666669627 0.050980392156862744391 1.0" />
             </material>
         </visual>
         <collision>
             <origin xyz="0.021133352895225002849 -0.0084321191467048792201 0.0097850881620952408213"
                 rpy="-3.141592653589793116 4.5075111242164408299e-32 4.4395481053923607589e-32" />
             <geometry>
-                <mesh filename="package://leap_description/assets/leap_hand/dip.stl" />
+                <mesh filename="dip.stl" />
             </geometry>
         </collision>
         <inertial>
@@ -110,23 +372,23 @@
         </inertial>
     </link>
 
-    <link name="index_distal_phalanx">
+    <link name="fingertip">
         <visual>
             <origin xyz="0.013286424108533503169 -0.0061142383865419869249 0.014499999999999497666"
                 rpy="3.141592653589793116 1.1993117970061734707e-33 4.4395481053923607589e-32" />
             <geometry>
-                <mesh filename="package://leap_description/assets/leap_hand/fingertip.stl" />
+                <mesh filename="fingertip.stl" />
             </geometry>
             <material name="fingertip_material">
                 <color
-                    rgba="1 1 1 1.0" />
+                    rgba="0.86666666666666669627 0.86666666666666669627 0.050980392156862744391 1.0" />
             </material>
         </visual>
         <collision>
             <origin xyz="0.013286424108533503169 -0.0061142383865419869249 0.014499999999999497666"
                 rpy="3.141592653589793116 1.1993117970061734707e-33 4.4395481053923607589e-32" />
             <geometry>
-                <mesh filename="package://leap_description/assets/leap_hand/fingertip.stl" />
+                <mesh filename="fingertip.stl" />
             </geometry>
         </collision>
         <inertial>
@@ -137,52 +399,53 @@
         </inertial>
     </link>
 
-    <joint name="index_pip_flex_joint" type="revolute">
+    <joint name="0" type="revolute">
         <origin xyz="-0.0070952496528625457958 0.023057756134899472233 -0.01872240357846021927"
             rpy="1.5707963267948950037 1.5707963267948945596 0" />
         <parent link="palm_lower" />
-        <child link="index_proximal_phalanx_1" />
+        <child link="mcp_joint" />
         <axis xyz="0 0 -1" />
         <limit effort="0.95" velocity="8.48" lower="-0.314" upper="2.23" />
         <joint_properties friction="0.0" />
     </joint>
     
-    <joint name="index_pip_abb_joint" type="revolute">
+    <joint name="1" type="revolute">
         <origin xyz="-0.012200000000000007713 0.038099999999999994982 0.014500000000000000736"
             rpy="-1.570796326794896558 -1.0065212660796336576e-15 1.5707963267948943376" />
-        <parent link="index_proximal_phalanx_1" />
-        <child link="index_proximal_phalanx_2" />
+        <parent link="mcp_joint" />
+        <child link="pip" />
         <axis xyz="0 0 -1" />
         <limit effort="0.95" velocity="8.48" lower="-1.047" upper="1.047" />
         <joint_properties friction="0.0" />
     </joint>
 
-    <joint name="index_mcp_joint" type="revolute">
+
+    <joint name="2" type="revolute">
         <origin xyz="0.01499999999999996822 0.014299999999999904801 -0.012999999999999824196"
             rpy="1.5707963267948958919 -1.570796326794896336 0" />
-        <parent link="index_proximal_phalanx_2" />
-        <child link="index_middle_phalanx" />
+        <parent link="pip" />
+        <child link="dip" />
         <axis xyz="0 0 -1" />
         <limit effort="0.95" velocity="8.48" lower="-0.506" upper="1.885" />
         <joint_properties friction="0.0" />
     </joint>
 
-    <joint name="index_dip_joint" type="revolute">
+    <joint name="3" type="revolute">
         <origin xyz="-4.0880582495572692636e-09 -0.036100004210367367397 0.00020000000000007858714"
             rpy="4.5935029425113685044e-17 -2.8730071914463794583e-16 4.4395481053923607589e-32" />
-        <parent link="index_middle_phalanx" />
-        <child link="index_distal_phalanx" />
+        <parent link="dip" />
+        <child link="fingertip" />
         <axis xyz="0 0 -1" />
         <limit effort="0.95" velocity="8.48" lower="-0.366" upper="2.042" />
         <joint_properties friction="0.0" />
     </joint>
 
-    <link name="middle_proximal_phalanx_1">
+    <link name="mcp_joint_2">
         <visual>
             <origin xyz="0.0084069022611744960438 0.0077662438597169954416 0.014657354985032913786"
                 rpy="1.6375789613220999807e-15 -1.0076465469034000467e-30 2.1209300131419907151e-61" />
             <geometry>
-                <mesh filename="package://leap_description/assets/leap_hand/mcp_joint.stl" />
+                <mesh filename="mcp_joint.stl" />
             </geometry>
             <material name="mcp_joint_material">
                 <color
@@ -193,7 +456,7 @@
             <origin xyz="0.0084069022611744960438 0.0077662438597169954416 0.014657354985032913786"
                 rpy="1.6375789613220999807e-15 -1.0076465469034000467e-30 2.1209300131419907151e-61" />
             <geometry>
-                <mesh filename="package://leap_description/assets/leap_hand/mcp_joint.stl" />
+                <mesh filename="mcp_joint.stl" />
             </geometry>
         </collision>
         <inertial>
@@ -204,13 +467,13 @@
         </inertial>
     </link>
 
-    <link name="middle_proximal_phalanx_2">
+    <link name="pip_2">
         <visual>
             <origin
                 xyz="0.0096433630922713280131 0.00029999999999999471534 0.00078403401041737645627"
                 rpy="-1.570796326794896558 -1.570796326794896336 0" />
             <geometry>
-                <mesh filename="package://leap_description/assets/leap_hand/pip.stl" />
+                <mesh filename="pip.stl" />
             </geometry>
             <material name="pip_material">
                 <color
@@ -222,7 +485,7 @@
                 xyz="0.0096433630922713280131 0.00029999999999999471534 0.00078403401041737645627"
                 rpy="-1.570796326794896558 -1.570796326794896336 0" />
             <geometry>
-                <mesh filename="package://leap_description/assets/leap_hand/pip.stl" />
+                <mesh filename="pip.stl" />
             </geometry>
         </collision>
         <inertial>
@@ -233,12 +496,12 @@
         </inertial>
     </link>
 
-    <link name="middle_middle_phalanx">
+    <link name="dip_2">
         <visual>
             <origin xyz="0.021133352895225002849 -0.0084321191467048653423 0.0097850881620952373519"
                 rpy="-3.141592653589793116 2.1146933785271955805e-32 1.4408183216511868558e-31" />
             <geometry>
-                <mesh filename="package://leap_description/assets/leap_hand/dip.stl" />
+                <mesh filename="dip.stl" />
             </geometry>
             <material name="dip_material">
                 <color
@@ -249,7 +512,7 @@
             <origin xyz="0.021133352895225002849 -0.0084321191467048653423 0.0097850881620952373519"
                 rpy="-3.141592653589793116 2.1146933785271955805e-32 1.4408183216511868558e-31" />
             <geometry>
-                <mesh filename="package://leap_description/assets/leap_hand/dip.stl" />
+                <mesh filename="dip.stl" />
             </geometry>
         </collision>
         <inertial>
@@ -260,12 +523,12 @@
         </inertial>
     </link>
 
-    <link name="middle_distal_phalanx">
+    <link name="fingertip_2">
         <visual>
             <origin xyz="0.01328642410853349623 -0.0061142383865420008027 0.014499999999999495931"
                 rpy="3.141592653589793116 -4.3179597882835943107e-33 1.4408183216511868558e-31" />
             <geometry>
-                <mesh filename="package://leap_description/assets/leap_hand/fingertip.stl" />
+                <mesh filename="fingertip.stl" />
             </geometry>
             <material name="fingertip_material">
                 <color
@@ -276,7 +539,7 @@
             <origin xyz="0.01328642410853349623 -0.0061142383865420008027 0.014499999999999495931"
                 rpy="3.141592653589793116 -4.3179597882835943107e-33 1.4408183216511868558e-31" />
             <geometry>
-                <mesh filename="package://leap_description/assets/leap_hand/fingertip.stl" />
+                <mesh filename="fingertip.stl" />
             </geometry>
         </collision>
         <inertial>
@@ -287,52 +550,52 @@
         </inertial>
     </link>
 
-    <joint name="middle_pip_flex_joint" type="revolute">
+    <joint name="4" type="revolute">
         <origin xyz="-0.0070952496528625388569 -0.022392243865100525113 -0.018722403578460229678"
             rpy="1.570796326794896558 1.570796326794896558 0" />
         <parent link="palm_lower" />
-        <child link="middle_proximal_phalanx_1" />
+        <child link="mcp_joint_2" />
         <axis xyz="0 0 -1" />
         <limit effort="0.95" velocity="8.48" lower="-0.314" upper="2.23" />
         <joint_properties friction="0.0" />
     </joint>
 
-    <joint name="middle_pip_abb_joint" type="revolute">
+    <joint name="5" type="revolute">
         <origin xyz="-0.012200000000000019856 0.038099999999999981104 0.01450000000000000594"
             rpy="-1.570796326794896558 -1.0065212760057939085e-15 1.5707963267948943376" />
-        <parent link="middle_proximal_phalanx_1" />
-        <child link="middle_proximal_phalanx_2" />
+        <parent link="mcp_joint_2" />
+        <child link="pip_2" />
         <axis xyz="0 0 -1" />
         <limit effort="0.95" velocity="8.48" lower="-1.047" upper="1.047" />
         <joint_properties friction="0.0" />
     </joint>
 
-    <joint name="middle_mcp_joint" type="revolute">
+    <joint name="6" type="revolute">
         <origin xyz="0.014999999999999975159 0.014300000000000000211 -0.013000000000000018485"
             rpy="1.5707963267948958919 -1.570796326794896336 0" />
-        <parent link="middle_proximal_phalanx_2" />
-        <child link="middle_middle_phalanx" />
+        <parent link="pip_2" />
+        <child link="dip_2" />
         <axis xyz="0 0 -1" />
         <limit effort="0.95" velocity="8.48" lower="-0.506" upper="1.885" />
         <joint_properties friction="0.0" />
     </joint>
 
-    <joint name="middle_dip_joint" type="revolute">
+    <joint name="7" type="revolute">
         <origin xyz="1.0061396160665481148e-16 -0.036099999999999854428 0.00020000000000007858714"
             rpy="4.5935029425113654229e-17 -2.8730071914463794583e-16 1.4408183216511868558e-31" />
-        <parent link="middle_middle_phalanx" />
-        <child link="middle_distal_phalanx" />
+        <parent link="dip_2" />
+        <child link="fingertip_2" />
         <axis xyz="0 0 -1" />
         <limit effort="0.95" velocity="8.48" lower="-0.366" upper="2.042" />
         <joint_properties friction="0.0" />
     </joint>
 
-    <link name="ring_proximal_phalanx_1">
+    <link name="mcp_joint_3">
         <visual>
             <origin xyz="0.0084069022611744995133 0.0077662438597169963089 0.014657354985032913786"
                 rpy="1.6375789613220999807e-15 -1.0059504988632626953e-30 5.729641584552035421e-32" />
             <geometry>
-                <mesh filename="package://leap_description/assets/leap_hand/mcp_joint.stl" />
+                <mesh filename="mcp_joint.stl" />
             </geometry>
             <material name="mcp_joint_material">
                 <color
@@ -343,7 +606,7 @@
             <origin xyz="0.0084069022611744995133 0.0077662438597169963089 0.014657354985032913786"
                 rpy="1.6375789613220999807e-15 -1.0059504988632626953e-30 5.729641584552035421e-32" />
             <geometry>
-                <mesh filename="package://leap_description/assets/leap_hand/mcp_joint.stl" />
+                <mesh filename="mcp_joint.stl" />
             </geometry>
         </collision>
         <inertial>
@@ -354,13 +617,13 @@
         </inertial>
     </link>
 
-    <link name="ring_proximal_phalanx_2">
+    <link name="pip_3">
         <visual>
             <origin
                 xyz="0.0096433630922713314826 0.00029999999999998083755 0.00078403401041737645627"
                 rpy="-1.570796326794896558 -1.570796326794896336 0" />
             <geometry>
-                <mesh filename="package://leap_description/assets/leap_hand/pip.stl" />
+                <mesh filename="pip.stl" />
             </geometry>
             <material name="pip_material">
                 <color
@@ -372,7 +635,7 @@
                 xyz="0.0096433630922713314826 0.00029999999999998083755 0.00078403401041737645627"
                 rpy="-1.570796326794896558 -1.570796326794896336 0" />
             <geometry>
-                <mesh filename="package://leap_description/assets/leap_hand/pip.stl" />
+                <mesh filename="pip.stl" />
             </geometry>
         </collision>
         <inertial>
@@ -383,12 +646,12 @@
         </inertial>
     </link>
 
-    <link name="ring_middle_phalanx">
+    <link name="dip_3">
         <visual>
             <origin xyz="0.021133352895225006318 -0.0084321191467048653423 0.0097850881620952373519"
                 rpy="-3.141592653589793116 -1.4095651113919093005e-33 1.5565411607615035382e-32" />
             <geometry>
-                <mesh filename="package://leap_description/assets/leap_hand/dip.stl" />
+                <mesh filename="dip.stl" />
             </geometry>
             <material name="dip_material">
                 <color
@@ -399,7 +662,7 @@
             <origin xyz="0.021133352895225006318 -0.0084321191467048653423 0.0097850881620952373519"
                 rpy="-3.141592653589793116 -1.4095651113919093005e-33 1.5565411607615035382e-32" />
             <geometry>
-                <mesh filename="package://leap_description/assets/leap_hand/dip.stl" />
+                <mesh filename="dip.stl" />
             </geometry>
         </collision>
         <inertial>
@@ -410,12 +673,12 @@
         </inertial>
     </link>
 
-    <link name="ring_distal_phalanx">
+    <link name="fingertip_3">
         <visual>
             <origin xyz="0.013286424108533501434 -0.0061142383865419869249 0.0144999999999994994"
                 rpy="3.141592653589793116 8.6170716950575402125e-33 1.5565411607615035382e-32" />
             <geometry>
-                <mesh filename="package://leap_description/assets/leap_hand/fingertip.stl" />
+                <mesh filename="fingertip.stl" />
             </geometry>
             <material name="fingertip_material">
                 <color
@@ -426,7 +689,7 @@
             <origin xyz="0.013286424108533501434 -0.0061142383865419869249 0.0144999999999994994"
                 rpy="3.141592653589793116 8.6170716950575402125e-33 1.5565411607615035382e-32" />
             <geometry>
-                <mesh filename="package://leap_description/assets/leap_hand/fingertip.stl" />
+                <mesh filename="fingertip.stl" />
             </geometry>
         </collision>
         <inertial>
@@ -437,57 +700,58 @@
         </inertial>
     </link>
 
-    <joint name="ring_pip_flex_joint" type="revolute">
+    <joint name="8" type="revolute">
         <origin xyz="-0.0070952454426398371343 -0.067842243865100515521 -0.018722407666402932774"
             rpy="1.5707963267948950037 1.5707963267948945596 0" />
         <parent link="palm_lower" />
-        <child link="ring_proximal_phalanx_1" />
+        <child link="mcp_joint_3" />
         <axis xyz="0 0 -1" />
         <limit effort="0.95" velocity="8.48" lower="-0.314" upper="2.23" />
         <joint_properties friction="0.0" />
     </joint>
     
-    <joint name="ring_pip_abb_joint" type="revolute">
+    <joint name="9" type="revolute">
         <origin xyz="-0.012200000000000004244 0.038100000000000001921 0.014499999999999999001"
             rpy="-1.570796326794896558 -1.0065212660796360242e-15 1.5707963267948943376" />
-        <parent link="ring_proximal_phalanx_1" />
-        <child link="ring_proximal_phalanx_2" />
+        <parent link="mcp_joint_3" />
+        <child link="pip_3" />
         <axis xyz="0 0 -1" />
         <limit effort="0.95" velocity="8.48" lower="-1.047" upper="1.047" />
         <joint_properties friction="0.0" />
     </joint>
 
-    <joint name="ring_mcp_joint" type="revolute">
+
+    <joint name="10" type="revolute">
         <origin xyz="0.014999999999999971689 0.014299999999999951639 -0.012999999999999959505"
             rpy="1.5707963267948958919 -1.570796326794896336 0" />
-        <parent link="ring_proximal_phalanx_2" />
-        <child link="ring_middle_phalanx" />
+        <parent link="pip_3" />
+        <child link="dip_3" />
         <axis xyz="0 0 -1" />
         <limit effort="0.95" velocity="8.48" lower="-0.506" upper="1.885" />
         <joint_properties friction="0.0" />
     </joint>
 
-    <joint name="ring_dip_joint" type="revolute">
+    <joint name="11" type="revolute">
         <origin xyz="9.7144514654701197287e-17 -0.036099999999999868305 0.00020000000000007511769"
             rpy="4.5935029425113685044e-17 -2.8730071914463799514e-16 1.5565411607615035382e-32" />
-        <parent link="ring_middle_phalanx" />
-        <child link="ring_distal_phalanx" />
+        <parent link="dip_3" />
+        <child link="fingertip_3" />
         <axis xyz="0 0 -1" />
         <limit effort="0.95" velocity="8.48" lower="-0.366" upper="2.042" />
         <joint_properties friction="0.0" />
     </joint>
 
-    <link name="thumb_semi_palm_1">
+    <link name="pip_4">
         <visual>
             <origin
                 xyz="-0.0053566369077286714317 0.00029999999999999991951 0.00078403401041737819099"
                 rpy="-1.570796326794896558 -1.570796326794896336 0" />
             <geometry>
-                <mesh filename="package://leap_description/assets/leap_hand/pip.stl" />
+                <mesh filename="pip.stl" />
             </geometry>
             <material name="pip_material">
                 <color
-                    rgba="0 0 0 1.0" />
+                    rgba="0.74901960784313725839 0.74901960784313725839 0.74901960784313725839 1.0" />
             </material>
         </visual>
         <collision>
@@ -495,7 +759,7 @@
                 xyz="-0.0053566369077286714317 0.00029999999999999991951 0.00078403401041737819099"
                 rpy="-1.570796326794896558 -1.570796326794896336 0" />
             <geometry>
-                <mesh filename="package://leap_description/assets/leap_hand/pip.stl" />
+                <mesh filename="pip.stl" />
             </geometry>
         </collision>
         <inertial>
@@ -506,17 +770,17 @@
         </inertial>
     </link>
 
-    <link name="thumb_semi_palm_2">
+    <link name="thumb_pip">
         <visual>
             <origin
                 xyz="0.011961920770611186859 -5.3082538364890297089e-16 -0.015852648956664199681"
                 rpy="1.570796326794896558 1.6050198443300152637e-46 -3.9204996250525192755e-59" />
             <geometry>
-                <mesh filename="package://leap_description/assets/leap_hand/thumb_pip.stl" />
+                <mesh filename="thumb_pip.stl" />
             </geometry>
             <material name="thumb_pip_material">
                 <color
-                    rgba="0 0 0 1.0" />
+                    rgba="0.86666666666666669627 0.86666666666666669627 0.050980392156862744391 1.0" />
             </material>
         </visual>
         <collision>
@@ -524,7 +788,7 @@
                 xyz="0.011961920770611186859 -5.3082538364890297089e-16 -0.015852648956664199681"
                 rpy="1.570796326794896558 1.6050198443300152637e-46 -3.9204996250525192755e-59" />
             <geometry>
-                <mesh filename="package://leap_description/assets/leap_hand/thumb_pip.stl" />
+                <mesh filename="thumb_pip.stl" />
             </geometry>
         </collision>
         <inertial>
@@ -534,23 +798,23 @@
         </inertial>
     </link>
 
-    <link name="thumb_middle_phalanx">
+    <link name="thumb_dip">
         <visual>
             <origin xyz="0.043968715707239175439 0.057952952973709198625 -0.0086286764493694757122"
                 rpy="1.9428902930940098942e-16 3.2751579226442200773e-15 1.1123758529657360012e-46" />
             <geometry>
-                <mesh filename="package://leap_description/assets/leap_hand/thumb_dip.stl" />
+                <mesh filename="thumb_dip.stl" />
             </geometry>
             <material name="thumb_dip_material">
                 <color
-                    rgba="0 0 0 1.0" />
+                    rgba="0.86666666666666669627 0.86666666666666669627 0.050980392156862744391 1.0" />
             </material>
         </visual>
         <collision>
             <origin xyz="0.043968715707239175439 0.057952952973709198625 -0.0086286764493694757122"
                 rpy="1.9428902930940098942e-16 3.2751579226442200773e-15 1.1123758529657360012e-46" />
             <geometry>
-                <mesh filename="package://leap_description/assets/leap_hand/thumb_dip.stl" />
+                <mesh filename="thumb_dip.stl" />
             </geometry>
         </collision>
         <inertial>
@@ -561,23 +825,23 @@
         </inertial>
     </link>
 
-    <link name="thumb_distal_phalanx">
+    <link name="thumb_fingertip">
         <visual>
             <origin xyz="0.062559538462667388381 0.078459682911396988469 0.048992911807332215068"
                 rpy="4.3790577010156367543e-47 -3.3306690738754701143e-16 1.2042408677791935383e-46" />
             <geometry>
-                <mesh filename="package://leap_description/assets/leap_hand/thumb_fingertip.stl" />
+                <mesh filename="thumb_fingertip.stl" />
             </geometry>
             <material name="thumb_fingertip_material">
                 <color
-                    rgba="1 1 1 1.0" />
+                    rgba="0.60392156862745094426 0.14901960784313725283 0.14901960784313725283 1.0" />
             </material>
         </visual>
         <collision>
             <origin xyz="0.062559538462667388381 0.078459682911396988469 0.048992911807332215068"
                 rpy="4.3790577010156367543e-47 -3.3306690738754701143e-16 1.2042408677791935383e-46" />
             <geometry>
-                <mesh filename="package://leap_description/assets/leap_hand/thumb_fingertip.stl" />
+                <mesh filename="thumb_fingertip.stl" />
             </geometry>
         </collision>
         <inertial>
@@ -588,41 +852,41 @@
         </inertial>
     </link>
 
-    <joint name="thumb_cmc_abb_joint" type="revolute">
+    <joint name="12" type="revolute">
         <origin xyz="-0.069395249652862533996 -0.0012422438651005258004 -0.021622403578460215601"
             rpy="-8.2381766464939424156e-17 1.5707963267948956698 0" />
         <parent link="palm_lower" />
-        <child link="thumb_semi_palm_1" />
+        <child link="pip_4" />
         <axis xyz="0 0 -1" />
         <limit effort="0.95" velocity="8.48" lower="-0.349" upper="2.094" />
         <joint_properties friction="0.0" />
     </joint>
 
-    <joint name="thumb_cmc_flex_joint" type="revolute">
+    <joint name="13" type="revolute">
         <origin xyz="-2.7755575615628913511e-17 0.014300000000000005415 -0.013000000000000011546"
             rpy="1.5707963267948958919 1.5707963267948958919 0" />
-        <parent link="thumb_semi_palm_1" />
-        <child link="thumb_semi_palm_2" />
+        <parent link="pip_4" />
+        <child link="thumb_pip" />
         <axis xyz="0 0 -1" />
         <limit effort="0.95" velocity="8.48" lower="-2.47" upper="2.443" />
         <joint_properties friction="0.0" />
     </joint>
 
-    <joint name="thumb_mcp_joint" type="revolute">
+    <joint name="14" type="revolute">
         <origin xyz="0 0.014499999999999966041 -0.017000000000000053263"
             rpy="-1.570796326794896558 1.6050198443300131245e-46 -1.9721522630516624601e-31" />
-        <parent link="thumb_semi_palm_2" />
-        <child link="thumb_middle_phalanx" />
+        <parent link="thumb_pip" />
+        <child link="thumb_dip" />
         <axis xyz="0 0 -1" />
         <limit effort="0.95" velocity="8.48" lower="-1.20" upper="1.90" />
         <joint_properties friction="0.0" />
     </joint>
 
-    <joint name="thumb_ip_joint" type="revolute">
+    <joint name="15" type="revolute">
         <origin xyz="-1.249000902703301108e-16 0.046599999999999863753 0.00019999999999997710581"
             rpy="1.5063958491491781023e-44 5.4234187233935260503e-31 3.141592653589793116" />
-        <parent link="thumb_middle_phalanx" />
-        <child link="thumb_distal_phalanx" />
+        <parent link="thumb_dip" />
+        <child link="thumb_fingertip" />
         <axis xyz="0 0 -1" />
         <limit effort="0.95" velocity="8.48" lower="-1.34" upper="1.88" />
         <joint_properties friction="0.0" />

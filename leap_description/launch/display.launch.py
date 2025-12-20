@@ -11,7 +11,7 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 
 def generate_launch_description():
     pkg_share = Path(launch_ros.substitutions.FindPackageShare(package='leap_description').find('leap_description'))
-    default_model_path = pkg_share / 'assets/leap_hand/robot.urdf'
+    default_model_path = pkg_share / 'assets/leap_hand/robot.urdf.xacro'
     default_rviz_config_path = pkg_share / 'rviz/robot_description.rviz'
 
     use_sim_time = LaunchConfiguration('use_sim_time')
@@ -60,7 +60,7 @@ def generate_launch_description():
         ),
         launch.actions.DeclareLaunchArgument(
             name='model',
-            default_value=str(A),
+            default_value=str(default_model_path),
             description='Absolute path to robot urdf file',
         ),
         launch.actions.DeclareLaunchArgument(

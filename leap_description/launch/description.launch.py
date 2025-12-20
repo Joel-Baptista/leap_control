@@ -10,7 +10,7 @@ from launch_ros.parameter_descriptions import ParameterValue
 
 def generate_launch_description():
     pkg_share = Path(launch_ros.substitutions.FindPackageShare(package='leap_description').find('leap_description'))
-    default_model_path = pkg_share / 'assets/leap_hand/robot.urdf'
+    default_model_path = pkg_share / 'assets/leap_hand/robot.urdf.xacro'
 
     robot_state_publisher_node = launch_ros.actions.Node(
         package='robot_state_publisher',
@@ -22,7 +22,6 @@ def generate_launch_description():
             },
         ],
     )
-
     return launch.LaunchDescription([
         launch.actions.DeclareLaunchArgument(
             name='model',
