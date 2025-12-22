@@ -11,55 +11,8 @@ import copy
 
 PI = 3.14159
 
-# Parâmetros de comunicação
-PORT_NAME = "/dev/ttyUSB0"  # Ajusta conforme necessário
-BAUDRATE = 4000000
-PROTOCOL_VERSION = 2.0
-
-# Endereços dos dados
-TORQUE_ENABLE = 64
-
-ADDR_GOAL_POSITION = 116
-ADDR_GOAL_CURRENT = 102
-ADDR_OPERATING_MODE = 11 #endereço do modo de operação
-
-CURRENT_BASED_POSITION_MODE = 5 
-
-ADDR_CURRENT_LIMIT = 38 #endereço do limite de corrente
-CURRENT_LIMIT_VALUE = 1800
-GOAL_CURRENT_VALUE = 500
-
-ADDR_PRESENT_CURRENT = 126
-ADDR_PRESENT_POSITION = 132  # Endereço da posição atual
-ADDR_PRESENT_VELOCITY = 128  # Endereço da velocidade atual
-TOTAL_LENGTH = 10
-VEL_LENGTH = 4
-POS_LENGTH = 4
-CURR_LENGTH = 2
-
-ADDR_INDIRECT_START = 168
-
-ADDR_PROFILE_VELOCITY = 112
-PROFILE_VELOCITY_VALUE = 50
 
 MOTOR_TORQUE_CONST = 0.1
-
-
-class Finger:
-    def __init__(self, name, factor, motor_factors):
-        self.name = name
-        self.factor = factor  # Velocidade relativa do dedo
-        self.motor_factors = motor_factors  # Velocidades relativas dos motores do dedo
-
-    def get_motor_speed(self, motor_name):
-        return PROFILE_VELOCITY_VALUE * self.factor * self.motor_factors.get(motor_name, 1.0)
-    
-    def get_finger_speed(self):
-        return PROFILE_VELOCITY_VALUE * self.factor
-
-
-
-# Lista de IDs dos motores
 MOTOR_IDS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,12,13,14,15] 
 
 class LeapGzDriver(Node):

@@ -46,6 +46,16 @@ def generate_launch_description():
             parameters=[dynamixel_config],
             output='screen'
         )
-    )
+    )    
+    
+    # nodes.append(
+    #     Node(
+    #         package='leap_control',
+    #         executable='leap_control_driver',
+    #         name='leap_control_driver_node',
+    #         parameters=[dynamixel_config],
+    #         output='screen'
+    #     )
+    # )
 
     return LaunchDescription(nodes)
