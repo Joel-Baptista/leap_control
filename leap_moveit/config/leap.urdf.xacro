@@ -11,4 +11,11 @@
 
     <xacro:leap_ros2_control name="FakeSystem" initial_positions_file="$(arg initial_positions_file)"/>
 
+    <gazebo>
+        <plugin filename="libgz_ros2_control-system.so" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+            <!-- <parameters>$(arg controllers_yaml)</parameters> -->
+            <parameters>/home/joel/distrobox/ros2-ubuntu/leap_ws/src/leap_control/leap_sim/config/leap_controller.yaml</parameters>
+        </plugin>
+    </gazebo>
+
 </robot>

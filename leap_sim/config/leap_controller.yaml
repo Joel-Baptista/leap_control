@@ -16,21 +16,21 @@ controller_manager:
 forward_position_controller:
   ros__parameters:
     joints:
-      - "0"
-      - "1"
-      - "2"
-      - "3"
-      - "4"
-      - "5"
-      - "6"
-      - "7"
-      - "8"
-      - "9"
-      - "10"
-      - "11"
-      - "12"
-      - "13"
-      - "14"
-      - "15"
+      - index_pip_flex_joint
+      - index_pip_abb_joint
+      - index_mcp_joint
+      - index_dip_joint
+      - middle_pip_flex_joint
+      - middle_pip_abb_joint
+      - middle_mcp_joint
+      - middle_dip_joint
+      - ring_pip_flex_joint
+      - ring_pip_abb_joint
+      - ring_mcp_joint
+      - ring_dip_joint
+      - thumb_cmc_abb_joint
+      - thumb_cmc_flex_joint
+      - thumb_mcp_joint
+      - thumb_ip_joint
       
     interface_name: position

@@ -77,12 +77,12 @@
 
       </link>
     </model>
-
+   
     <!-- Example custom model -->
-    <include>
-      <uri>model://robot.urdf.xacro</uri>
+    <!-- <include>
+      <uri>model://leap_description/assets/leap_hand/robot.urdf.xacro</uri>
       <pose>0 0 0.1 3.14 0 0</pose>
-    </include>
+    </include> -->
     <!-- Optional: Sensors, static models, walls, etc. -->
   </world>
 </sdf>
