@@ -53,6 +53,7 @@ setup(
             'read_sensors = leap_control.fsr_sensors.fsr_sensors_node:main',
             'collect_data = leap_control.hand_control.collect_data:main',
             'leap_control_driver = src.leap_control_driver:main',
+            'test = src.test:main',
         ],
     },
 )

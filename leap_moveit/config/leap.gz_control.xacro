@@ -1,0 +1,188 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:macro name="leap_gz_control" params="name initial_positions_file">
+        <xacro:property name="initial_positions" value="${xacro.load_yaml(initial_positions_file)['initial_positions']}"/>
+
+          <ros2_control name="GazeboSimSystem" type="system">
+            <hardware>
+                <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+            </hardware>
+            <joint name="index_pip_flex_joint">
+                <command_interface name="position">
+                    <param name="min">-3.14</param>
+                    <param name="max">3.14</param>
+                </command_interface>
+                <state_interface name="position">
+                    <param name="initial_value">${initial_positions['index_pip_flex_joint']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+                <state_interface name="effort"/>
+            </joint>
+            <joint name="index_pip_abb_joint">
+                <command_interface name="position">
+                    <param name="min">-3.14</param>
+                    <param name="max">3.14</param>
+                </command_interface>
+                <state_interface name="position">
+                    <param name="initial_value">${initial_positions['index_pip_abb_joint']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+                <state_interface name="effort"/>
+            </joint>
+            <joint name="index_mcp_joint">
+                <command_interface name="position">
+                    <param name="min">-3.14</param>
+                    <param name="max">3.14</param>
+                </command_interface>
+                <state_interface name="position">
+                    <param name="initial_value">${initial_positions['index_mcp_joint']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+                <state_interface name="effort"/>
+            </joint>
+            <joint name="index_dip_joint">
+                <command_interface name="position">
+                    <param name="min">-3.14</param>
+                    <param name="max">3.14</param>
+                </command_interface>
+                <state_interface name="position">
+                    <param name="initial_value">${initial_positions['index_dip_joint']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+                <state_interface name="effort"/>
+            </joint>
+            <joint name="middle_pip_flex_joint">
+                <command_interface name="position">
+                    <param name="min">-3.14</param>
+                    <param name="max">3.14</param>
+                </command_interface>
+                <state_interface name="position">
+                    <param name="initial_value">${initial_positions['middle_pip_flex_joint']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+                <state_interface name="effort"/>
+            </joint>
+            <joint name="middle_pip_abb_joint">
+                <command_interface name="position">
+                    <param name="min">-3.14</param>
+                    <param name="max">3.14</param>
+                </command_interface>
+                <state_interface name="position">
+                    <param name="initial_value">${initial_positions['middle_pip_abb_joint']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+                <state_interface name="effort"/>
+            </joint>
+            <joint name="middle_mcp_joint">
+                <command_interface name="position">
+                    <param name="min">-3.14</param>
+                    <param name="max">3.14</param>
+                </command_interface>
+                <state_interface name="position">
+                    <param name="initial_value">${initial_positions['middle_mcp_joint']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+                <state_interface name="effort"/>
+            </joint>
+            <joint name="middle_dip_joint">
+                <command_interface name="position">
+                    <param name="min">-3.14</param>
+                    <param name="max">3.14</param>
+                </command_interface>
+                <state_interface name="position">
+                    <param name="initial_value">${initial_positions['middle_dip_joint']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+                <state_interface name="effort"/>
+            </joint>
+            <joint name="ring_pip_flex_joint">
+                <command_interface name="position">
+                    <param name="min">-3.14</param>
+                    <param name="max">3.14</param>
+                </command_interface>
+                <state_interface name="position">
+                    <param name="initial_value">${initial_positions['ring_pip_flex_joint']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+                <state_interface name="effort"/>
+            </joint>
+            <joint name="ring_pip_abb_joint">
+                <command_interface name="position">
+                    <param name="min">-3.14</param>
+                    <param name="max">3.14</param>
+                </command_interface>
+                <state_interface name="position">
+                    <param name="initial_value">${initial_positions['ring_pip_abb_joint']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+                <state_interface name="effort"/>
+            </joint>
+            <joint name="ring_mcp_joint">
+                <command_interface name="position">
+                    <param name="min">-3.14</param>
+                    <param name="max">3.14</param>
+                </command_interface>
+                <state_interface name="position">
+                    <param name="initial_value">${initial_positions['ring_mcp_joint']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+                <state_interface name="effort"/>
+            </joint>
+            <joint name="ring_dip_joint">
+                <command_interface name="position">
+                    <param name="min">-3.14</param>
+                    <param name="max">3.14</param>
+                </command_interface>
+                <state_interface name="position">
+                    <param name="initial_value">${initial_positions['ring_dip_joint']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+                <state_interface name="effort"/>
+            </joint>
+            <joint name="thumb_cmc_abb_joint">
+                <command_interface name="position">
+                    <param name="min">-3.14</param>
+                    <param name="max">3.14</param>
+                </command_interface>
+                <state_interface name="position">
+                    <param name="initial_value">${initial_positions['thumb_cmc_abb_joint']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+                <state_interface name="effort"/>
+            </joint>
+            <joint name="thumb_cmc_flex_joint">
+                <command_interface name="position">
+                    <param name="min">-3.14</param>
+                    <param name="max">3.14</param>
+                </command_interface>
+                <state_interface name="position">
+                    <param name="initial_value">${initial_positions['thumb_cmc_flex_joint']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+                <state_interface name="effort"/>
+            </joint>
+            <joint name="thumb_mcp_joint">
+                <command_interface name="position">
+                    <param name="min">-3.14</param>
+                    <param name="max">3.14</param>
+                </command_interface>
+                <state_interface name="position">
+                    <param name="initial_value">${initial_positions['thumb_mcp_joint']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+                <state_interface name="effort"/>
+            </joint>
+            <joint name="thumb_ip_joint">
+                <command_interface name="position">
+                    <param name="min">-3.14</param>
+                    <param name="max">3.14</param>
+                </command_interface>
+                <state_interface name="position">
+                    <param name="initial_value">${initial_positions['thumb_ip_joint']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+                <state_interface name="effort"/>
+            </joint>
+        </ros2_control>
+    </xacro:macro>
+</robot>

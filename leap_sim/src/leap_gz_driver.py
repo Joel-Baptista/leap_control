@@ -65,6 +65,9 @@ class LeapGzDriver(Node):
         self.time_last_vel = self.get_clock().now()
         self.joint_states: JointState = None
         self.last_control = [0.0] * len(self.ordered_joints)
+        time.sleep(2.0)
+        print("Initial Position sent!")
+        self.publisher_controller.publish(Float64MultiArray(data=self.last_control))
         
         #lista com os motores detetados para verificar quais os dedos que estão conectados
         #no futuro devera ser uma lista com os ids de 0 a 15
@@ -161,7 +164,6 @@ class LeapGzDriver(Node):
 
         interp_positions.append(positions[-1])
 
-        print(len(interp_positions))
         for positions in interp_positions:
             ordered_positions = [
                 positions[self.joint_order_map[joint_name]]

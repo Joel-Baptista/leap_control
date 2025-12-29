@@ -37,6 +37,16 @@ def generate_launch_description():
         " ", "controllers_yaml:=", controllers_yaml, " ", "use_gazebo:=", "true"
     ])
 
+    # Keep RSP alive regardless of Gazebo spawn attempts
+    rsp = Node(
+        package="robot_state_publisher",
+        executable="robot_state_publisher",
+        parameters=[
+            {"use_sim_time": True},
+            {"robot_description": robot_description},
+        ],
+        output="screen",
+    )
     ld.add_action(DeclareLaunchArgument("publish_frequency", default_value="15.0"))
 
     # Given the published joint states, publish tf for the robot links and the robot description
@@ -143,6 +153,29 @@ def generate_launch_description():
 
     ld.add_action(rsp_node)
     ld.add_action(clock_bridge)
+    ld.add_action(SetParameter(name="use_sim_time", value=True))
+    ld.add_action(
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(
+                f"{leap_moveit_share}/launch/move_group.launch.py"
+            ),
+        )
+    )
+    ld.add_action(
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(
+                f"{leap_moveit_share}/launch/moveit_rviz.launch.py"
+            ),
+        )
+    )
+
+    ld.add_action(
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(
+                f"{leap_moveit_share}/launch/spawn_controllers.launch.py"
+            ),
+        )
+    )
     ld.add_action(robot_ld)
     ld.add_action(TimerAction(period=10.0, actions=[gz_driver]))
     return ld
