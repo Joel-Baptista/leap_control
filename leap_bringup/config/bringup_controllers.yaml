@@ -1,0 +1,66 @@
+ros_control:
+  ros__parameters:
+    hold_joints: false
+    position_proportional_gain: 0.5
+
+controller_manager:
+  ros__parameters:
+    update_rate: 500
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    forward_position_controller:
+      type: forward_command_controller/ForwardCommandController
+
+    hand_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+forward_position_controller:
+  ros__parameters:
+    joints:
+      - index_pip_flex_joint
+      - index_pip_abb_joint
+      - index_mcp_joint
+      - index_dip_joint
+      - middle_pip_flex_joint
+      - middle_pip_abb_joint
+      - middle_mcp_joint
+      - middle_dip_joint
+      - ring_pip_flex_joint
+      - ring_pip_abb_joint
+      - ring_mcp_joint
+      - ring_dip_joint
+      - thumb_cmc_abb_joint
+      - thumb_cmc_flex_joint
+      - thumb_mcp_joint
+      - thumb_ip_joint
+      
+    interface_name: position
+
+hand_controller:
+  ros__parameters:
+    joints:
+      - index_pip_flex_joint
+      - index_pip_abb_joint
+      - index_mcp_joint
+      - index_dip_joint
+      - middle_pip_flex_joint
+      - middle_pip_abb_joint
+      - middle_mcp_joint
+      - middle_dip_joint
+      - ring_pip_flex_joint
+      - ring_pip_abb_joint
+      - ring_mcp_joint
+      - ring_dip_joint
+      - thumb_cmc_abb_joint
+      - thumb_cmc_flex_joint
+      - thumb_mcp_joint
+      - thumb_ip_joint
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    allow_nonzero_velocity_at_trajectory_end: true

@@ -9,8 +9,8 @@ def generate_launch_description():
 
     # Load YAML
     pkg_share = get_package_share_directory('leap_control')
-    yaml_file = os.path.join(pkg_share, 'cfg', 'leap.yaml')
-    dynamixel_yaml_file = os.path.join(pkg_share, 'cfg', 'dynamixel.yaml')
+    yaml_file = os.path.join(pkg_share, 'config', 'leap.yaml')
+    dynamixel_yaml_file = os.path.join(pkg_share, 'confing', 'dynamixel.yaml')
 
     with open(yaml_file, 'r') as f:
         config = yaml.safe_load(f)

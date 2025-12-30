@@ -27,11 +27,10 @@ def generate_launch_description():
     leap_sim_lib = os.path.join(leap_sim_prefix, "lib")
 
     robot_xacro = os.path.join(leap_moveit_share, "config", "leap.urdf.xacro")
-    # robot_xacro = os.path.join(leap_desc_share, "assets", "leap_hand", "robot_gz.urdf.xacro")
 
     controllers_yaml = os.path.join(leap_sim_share, "config", "leap_controller.yaml")
 
-    # Expand xacro -> URDF string
+    # # Expand xacro -> URDF string
     robot_description = Command([
         "xacro", " ", robot_xacro,
         " ", "controllers_yaml:=", controllers_yaml, " ", "use_gazebo:=", "true"
@@ -103,6 +102,7 @@ def generate_launch_description():
         arguments=[
             "forward_position_controller",
             "-c", "/controller_manager",
+            "-p", controllers_yaml,
             "--controller-manager-timeout", "120",
         ],
         output="screen",
@@ -137,11 +137,11 @@ def generate_launch_description():
         SetEnvironmentVariable("GZ_SIM_PLUGIN_PATH", gz_plugin_path),
         gz_sim,
         TimerAction(period=2.0, actions=[spawn_entity]),
-        TimerAction(period=4.0, actions=[spawn_pos])
+        TimerAction(period=2.0, actions=[spawn_pos])
     ])
 
 
-    ld.add_action(rsp_node)
+    # ld.add_action(rsp_node)
     ld.add_action(clock_bridge)
     ld.add_action(robot_ld)
     ld.add_action(TimerAction(period=10.0, actions=[gz_driver]))

@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<robot name="Leap">
+    <webots>
+        <plugin type="leap_sim.leap_webots_driver.LeapWebotsDriver" />
+    </webots>
+</robot>

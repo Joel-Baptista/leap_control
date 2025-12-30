@@ -1,0 +1,904 @@
+#VRML_SIM R2025a utf8
+# license: Apache License 2.0
+# license url: http://www.apache.org/licenses/LICENSE-2.0
+# This is a proto file for Webots for the Leap
+# Extracted from: /home/joel/distrobox/ros2-ubuntu/leap_ws/src/leap_control/robot.urdf
+
+PROTO Leap [
+  field  SFVec3f     translation     0 0 0
+  field  SFRotation  rotation        0 0 1 0
+  field  SFString    name            "Leap"  # Is `Robot.name`.
+  field  SFString    controller      "void"  # Is `Robot.controller`.
+  field  MFString    controllerArgs  []      # Is `Robot.controllerArgs`.
+  field  SFString    customData      ""      # Is `Robot.customData`.
+  field  SFBool      supervisor      FALSE   # Is `Robot.supervisor`.
+  field  SFBool      synchronization TRUE    # Is `Robot.synchronization`.
+  field  SFBool      selfCollision   FALSE   # Is `Robot.selfCollision`.
+]
+{
+  Robot {
+    translation IS translation
+    rotation IS rotation
+    controller IS controller
+    controllerArgs IS controllerArgs
+    customData IS customData
+    supervisor IS supervisor
+    synchronization IS synchronization
+    selfCollision IS selfCollision
+    children [
+      Pose {
+        translation -0.020095 0.025758 -0.034722
+        children [
+          Shape {
+            appearance DEF palm_lower_material PBRAppearance {
+              roughness 1.000000
+              metalness 0
+            }
+            geometry DEF palm_lower Mesh {
+              url "/home/joel/distrobox/ros2-ubuntu/leap_ws/install/leap_description/share/leap_description/assets/leap_hand/palm_lower.stl"
+            }
+          }
+        ]
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          axis -0.000000 1.000000 0.000000
+          anchor -0.007095 0.023058 -0.018722
+        }
+        device [
+          RotationalMotor {
+            name "index_pip_flex_joint"
+            maxVelocity 8.48
+            minPosition -0.314
+            maxPosition 2.23
+            maxTorque 0.95
+          }
+          PositionSensor {
+            name "index_pip_flex_joint_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation -0.007095 0.023058 -0.018722
+          rotation 0.577350 0.577350 -0.577350 2.094395
+          children [
+            Pose {
+              translation 0.008407 0.007766 0.014657
+              children [
+                Shape {
+                  appearance DEF proximal_phalanx_1_material PBRAppearance {
+                    baseColor 0.000000 0.000000 0.000000
+                    roughness 1.000000
+                    metalness 0
+                  }
+                  geometry DEF proximal_phalanx_1 Mesh {
+                    url "/home/joel/distrobox/ros2-ubuntu/leap_ws/install/leap_description/share/leap_description/assets/leap_hand/proximal_phalanx_1.stl"
+                  }
+                }
+              ]
+            }
+            HingeJoint {
+              jointParameters HingeJointParameters {
+                axis 1.000000 -0.000000 -0.000000
+                anchor -0.012200 0.038100 0.014500
+              }
+              device [
+                RotationalMotor {
+                  name "index_pip_abb_joint"
+                  maxVelocity 8.48
+                  minPosition -1.047
+                  maxPosition 1.047
+                  maxTorque 0.95
+                }
+                PositionSensor {
+                  name "index_pip_abb_joint_sensor"
+                }
+              ]
+              endPoint Solid {
+                translation -0.012200 0.038100 0.014500
+                rotation -0.577350 -0.577350 0.577350 2.094395
+                children [
+                  Pose {
+                    translation 0.009643 0.000300 0.000784
+                    rotation -0.577350 -0.577350 -0.577350 2.094395
+                    children [
+                      Shape {
+                        appearance DEF proximal_phalanx_2_material PBRAppearance {
+                          baseColor 0.000000 0.000000 0.000000
+                          roughness 1.000000
+                          metalness 0
+                        }
+                        geometry DEF proximal_phalanx_2 Mesh {
+                          url "/home/joel/distrobox/ros2-ubuntu/leap_ws/install/leap_description/share/leap_description/assets/leap_hand/proximal_phalanx_2.stl"
+                        }
+                      }
+                    ]
+                  }
+                  HingeJoint {
+                    jointParameters HingeJointParameters {
+                      axis 0.000000 1.000000 -0.000000
+                      anchor 0.015000 0.014300 -0.013000
+                    }
+                    device [
+                      RotationalMotor {
+                        name "index_mcp_joint"
+                        maxVelocity 8.48
+                        minPosition -0.506
+                        maxPosition 1.885
+                        maxTorque 0.95
+                      }
+                      PositionSensor {
+                        name "index_mcp_joint_sensor"
+                      }
+                    ]
+                    endPoint Solid {
+                      translation 0.015000 0.014300 -0.013000
+                      rotation 0.577350 -0.577350 0.577350 2.094395
+                      children [
+                        Pose {
+                          translation 0.021133 -0.008432 0.009785
+                          rotation -1.000000 0.000000 0.000000 3.141593
+                          children [
+                            Shape {
+                              appearance DEF middle_phalanx_material PBRAppearance {
+                                baseColor 0.000000 0.000000 0.000000
+                                roughness 1.000000
+                                metalness 0
+                              }
+                              geometry DEF middle_phalanx Mesh {
+                                url "/home/joel/distrobox/ros2-ubuntu/leap_ws/install/leap_description/share/leap_description/assets/leap_hand/middle_phalanx.stl"
+                              }
+                            }
+                          ]
+                        }
+                        HingeJoint {
+                          jointParameters HingeJointParameters {
+                            axis 0.000000 0.000000 -1.000000
+                            anchor 0.000000 -0.036100 0.000200
+                          }
+                          device [
+                            RotationalMotor {
+                              name "index_dip_joint"
+                              maxVelocity 8.48
+                              minPosition -0.366
+                              maxPosition 2.042
+                              maxTorque 0.95
+                            }
+                            PositionSensor {
+                              name "index_dip_joint_sensor"
+                            }
+                          ]
+                          endPoint Solid {
+                            translation 0.000000 -0.036100 0.000200
+                            children [
+                              Pose {
+                                translation 0.013286 -0.006114 0.014500
+                                rotation 1.000000 0.000000 0.000000 3.141593
+                                children [
+                                  Shape {
+                                    appearance DEF distal_phalanx_material PBRAppearance {
+                                      roughness 1.000000
+                                      metalness 0
+                                    }
+                                    geometry DEF distal_phalanx Mesh {
+                                      url "/home/joel/distrobox/ros2-ubuntu/leap_ws/install/leap_description/share/leap_description/assets/leap_hand/distal_phalanx.stl"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                            name "index_distal_phalanx"
+                            boundingObject Pose {
+                              translation 0.013286 -0.006114 0.014500
+                              rotation 1.000000 0.000000 0.000000 3.141593
+                              children [
+                                USE distal_phalanx
+                              ]
+                            }
+                            physics Physics {
+                              density -1
+                              mass 0.016000
+                              centerOfMass [ 0.000000 0.000000 0.000000 ]
+                              inertiaMatrix [
+                                3.368000e-06 1.556000e-06 2.863000e-06
+                                1.150000e-07 0.000000e+00 0.000000e+00
+                              ]
+                            }
+                          }
+                        }
+                      ]
+                      name "index_middle_phalanx"
+                      boundingObject Pose {
+                        translation 0.021133 -0.008432 0.009785
+                        rotation -1.000000 0.000000 0.000000 3.141593
+                        children [
+                          USE middle_phalanx
+                        ]
+                      }
+                      physics Physics {
+                        density -1
+                        mass 0.037000
+                        centerOfMass [ 0.000000 0.000000 0.000000 ]
+                        inertiaMatrix [
+                          5.542000e-06 5.727000e-06 6.682000e-06
+                          -6.070000e-07 -1.700000e-08 -2.300000e-08
+                        ]
+                      }
+                    }
+                  }
+                ]
+                name "index_proximal_phalanx_2"
+                boundingObject Pose {
+                  translation 0.009643 0.000300 0.000784
+                  rotation -0.577350 -0.577350 -0.577350 2.094395
+                  children [
+                    USE proximal_phalanx_2
+                  ]
+                }
+                physics Physics {
+                  density -1
+                  mass 0.032000
+                  centerOfMass [ 0.000000 0.000000 0.000000 ]
+                  inertiaMatrix [
+                    4.798000e-06 2.862000e-06 4.234000e-06
+                    1.200000e-08 4.000000e-09 1.100000e-08
+                  ]
+                }
+              }
+            }
+          ]
+          name "index_proximal_phalanx_1"
+          boundingObject Pose {
+            translation 0.008407 0.007766 0.014657
+            children [
+              USE proximal_phalanx_1
+            ]
+          }
+          physics Physics {
+            density -1
+            mass 0.044000
+            centerOfMass [ 0.000000 0.000000 0.000000 ]
+            inertiaMatrix [
+              1.149900e-05 7.796000e-06 1.475900e-05
+              3.049000e-06 1.210000e-07 1.120000e-07
+            ]
+          }
+        }
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          axis -0.000000 1.000000 0.000000
+          anchor -0.007095 -0.022392 -0.018722
+        }
+        device [
+          RotationalMotor {
+            name "middle_pip_flex_joint"
+            maxVelocity 8.48
+            minPosition -0.314
+            maxPosition 2.23
+            maxTorque 0.95
+          }
+          PositionSensor {
+            name "middle_pip_flex_joint_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation -0.007095 -0.022392 -0.018722
+          rotation 0.577350 0.577350 -0.577350 2.094395
+          children [
+            Pose {
+              translation 0.008407 0.007766 0.014657
+              children [
+                Shape {
+                  appearance USE proximal_phalanx_1_material
+                  geometry USE proximal_phalanx_1
+                }
+              ]
+            }
+            HingeJoint {
+              jointParameters HingeJointParameters {
+                axis 1.000000 -0.000000 -0.000000
+                anchor -0.012200 0.038100 0.014500
+              }
+              device [
+                RotationalMotor {
+                  name "middle_pip_abb_joint"
+                  maxVelocity 8.48
+                  minPosition -1.047
+                  maxPosition 1.047
+                  maxTorque 0.95
+                }
+                PositionSensor {
+                  name "middle_pip_abb_joint_sensor"
+                }
+              ]
+              endPoint Solid {
+                translation -0.012200 0.038100 0.014500
+                rotation -0.577350 -0.577350 0.577350 2.094395
+                children [
+                  Pose {
+                    translation 0.009643 0.000300 0.000784
+                    rotation -0.577350 -0.577350 -0.577350 2.094395
+                    children [
+                      Shape {
+                        appearance USE proximal_phalanx_2_material
+                        geometry USE proximal_phalanx_2
+                      }
+                    ]
+                  }
+                  HingeJoint {
+                    jointParameters HingeJointParameters {
+                      axis 0.000000 1.000000 -0.000000
+                      anchor 0.015000 0.014300 -0.013000
+                    }
+                    device [
+                      RotationalMotor {
+                        name "middle_mcp_joint"
+                        maxVelocity 8.48
+                        minPosition -0.506
+                        maxPosition 1.885
+                        maxTorque 0.95
+                      }
+                      PositionSensor {
+                        name "middle_mcp_joint_sensor"
+                      }
+                    ]
+                    endPoint Solid {
+                      translation 0.015000 0.014300 -0.013000
+                      rotation 0.577350 -0.577350 0.577350 2.094395
+                      children [
+                        Pose {
+                          translation 0.021133 -0.008432 0.009785
+                          rotation -1.000000 0.000000 0.000000 3.141593
+                          children [
+                            Shape {
+                              appearance USE middle_phalanx_material
+                              geometry USE middle_phalanx
+                            }
+                          ]
+                        }
+                        HingeJoint {
+                          jointParameters HingeJointParameters {
+                            axis 0.000000 0.000000 -1.000000
+                            anchor 0.000000 -0.036100 0.000200
+                          }
+                          device [
+                            RotationalMotor {
+                              name "middle_dip_joint"
+                              maxVelocity 8.48
+                              minPosition -0.366
+                              maxPosition 2.042
+                              maxTorque 0.95
+                            }
+                            PositionSensor {
+                              name "middle_dip_joint_sensor"
+                            }
+                          ]
+                          endPoint Solid {
+                            translation 0.000000 -0.036100 0.000200
+                            children [
+                              Pose {
+                                translation 0.013286 -0.006114 0.014500
+                                rotation 1.000000 0.000000 0.000000 3.141593
+                                children [
+                                  Shape {
+                                    appearance USE distal_phalanx_material
+                                    geometry USE distal_phalanx
+                                  }
+                                ]
+                              }
+                            ]
+                            name "middle_distal_phalanx"
+                            boundingObject Pose {
+                              translation 0.013286 -0.006114 0.014500
+                              rotation 1.000000 0.000000 0.000000 3.141593
+                              children [
+                                USE distal_phalanx
+                              ]
+                            }
+                            physics Physics {
+                              density -1
+                              mass 0.016000
+                              centerOfMass [ 0.000000 0.000000 0.000000 ]
+                              inertiaMatrix [
+                                3.368000e-06 1.556000e-06 2.863000e-06
+                                1.150000e-07 0.000000e+00 0.000000e+00
+                              ]
+                            }
+                          }
+                        }
+                      ]
+                      name "middle_middle_phalanx"
+                      boundingObject Pose {
+                        translation 0.021133 -0.008432 0.009785
+                        rotation -1.000000 0.000000 0.000000 3.141593
+                        children [
+                          USE middle_phalanx
+                        ]
+                      }
+                      physics Physics {
+                        density -1
+                        mass 0.037000
+                        centerOfMass [ 0.000000 0.000000 0.000000 ]
+                        inertiaMatrix [
+                          5.542000e-06 5.727000e-06 6.682000e-06
+                          -6.070000e-07 -1.700000e-08 -2.300000e-08
+                        ]
+                      }
+                    }
+                  }
+                ]
+                name "middle_proximal_phalanx_2"
+                boundingObject Pose {
+                  translation 0.009643 0.000300 0.000784
+                  rotation -0.577350 -0.577350 -0.577350 2.094395
+                  children [
+                    USE proximal_phalanx_2
+                  ]
+                }
+                physics Physics {
+                  density -1
+                  mass 0.032000
+                  centerOfMass [ 0.000000 0.000000 0.000000 ]
+                  inertiaMatrix [
+                    4.798000e-06 2.862000e-06 4.234000e-06
+                    1.200000e-08 4.000000e-09 1.100000e-08
+                  ]
+                }
+              }
+            }
+          ]
+          name "middle_proximal_phalanx_1"
+          boundingObject Pose {
+            translation 0.008407 0.007766 0.014657
+            children [
+              USE proximal_phalanx_1
+            ]
+          }
+          physics Physics {
+            density -1
+            mass 0.044000
+            centerOfMass [ 0.000000 0.000000 0.000000 ]
+            inertiaMatrix [
+              1.149900e-05 7.796000e-06 1.475900e-05
+              3.049000e-06 1.210000e-07 1.120000e-07
+            ]
+          }
+        }
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          axis -0.000000 1.000000 0.000000
+          anchor -0.007095 -0.067842 -0.018722
+        }
+        device [
+          RotationalMotor {
+            name "ring_pip_flex_joint"
+            maxVelocity 8.48
+            minPosition -0.314
+            maxPosition 2.23
+            maxTorque 0.95
+          }
+          PositionSensor {
+            name "ring_pip_flex_joint_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation -0.007095 -0.067842 -0.018722
+          rotation 0.577350 0.577350 -0.577350 2.094395
+          children [
+            Pose {
+              translation 0.008407 0.007766 0.014657
+              children [
+                Shape {
+                  appearance USE proximal_phalanx_1_material
+                  geometry USE proximal_phalanx_1
+                }
+              ]
+            }
+            HingeJoint {
+              jointParameters HingeJointParameters {
+                axis 1.000000 -0.000000 -0.000000
+                anchor -0.012200 0.038100 0.014500
+              }
+              device [
+                RotationalMotor {
+                  name "ring_pip_abb_joint"
+                  maxVelocity 8.48
+                  minPosition -1.047
+                  maxPosition 1.047
+                  maxTorque 0.95
+                }
+                PositionSensor {
+                  name "ring_pip_abb_joint_sensor"
+                }
+              ]
+              endPoint Solid {
+                translation -0.012200 0.038100 0.014500
+                rotation -0.577350 -0.577350 0.577350 2.094395
+                children [
+                  Pose {
+                    translation 0.009643 0.000300 0.000784
+                    rotation -0.577350 -0.577350 -0.577350 2.094395
+                    children [
+                      Shape {
+                        appearance USE proximal_phalanx_2_material
+                        geometry USE proximal_phalanx_2
+                      }
+                    ]
+                  }
+                  HingeJoint {
+                    jointParameters HingeJointParameters {
+                      axis 0.000000 1.000000 -0.000000
+                      anchor 0.015000 0.014300 -0.013000
+                    }
+                    device [
+                      RotationalMotor {
+                        name "ring_mcp_joint"
+                        maxVelocity 8.48
+                        minPosition -0.506
+                        maxPosition 1.885
+                        maxTorque 0.95
+                      }
+                      PositionSensor {
+                        name "ring_mcp_joint_sensor"
+                      }
+                    ]
+                    endPoint Solid {
+                      translation 0.015000 0.014300 -0.013000
+                      rotation 0.577350 -0.577350 0.577350 2.094395
+                      children [
+                        Pose {
+                          translation 0.021133 -0.008432 0.009785
+                          rotation -1.000000 0.000000 0.000000 3.141593
+                          children [
+                            Shape {
+                              appearance USE middle_phalanx_material
+                              geometry USE middle_phalanx
+                            }
+                          ]
+                        }
+                        HingeJoint {
+                          jointParameters HingeJointParameters {
+                            axis 0.000000 0.000000 -1.000000
+                            anchor 0.000000 -0.036100 0.000200
+                          }
+                          device [
+                            RotationalMotor {
+                              name "ring_dip_joint"
+                              maxVelocity 8.48
+                              minPosition -0.366
+                              maxPosition 2.042
+                              maxTorque 0.95
+                            }
+                            PositionSensor {
+                              name "ring_dip_joint_sensor"
+                            }
+                          ]
+                          endPoint Solid {
+                            translation 0.000000 -0.036100 0.000200
+                            children [
+                              Pose {
+                                translation 0.013286 -0.006114 0.014500
+                                rotation 1.000000 0.000000 0.000000 3.141593
+                                children [
+                                  Shape {
+                                    appearance USE distal_phalanx_material
+                                    geometry USE distal_phalanx
+                                  }
+                                ]
+                              }
+                            ]
+                            name "ring_distal_phalanx"
+                            boundingObject Pose {
+                              translation 0.013286 -0.006114 0.014500
+                              rotation 1.000000 0.000000 0.000000 3.141593
+                              children [
+                                USE distal_phalanx
+                              ]
+                            }
+                            physics Physics {
+                              density -1
+                              mass 0.016000
+                              centerOfMass [ 0.000000 0.000000 0.000000 ]
+                              inertiaMatrix [
+                                3.368000e-06 1.556000e-06 2.863000e-06
+                                1.150000e-07 0.000000e+00 0.000000e+00
+                              ]
+                            }
+                          }
+                        }
+                      ]
+                      name "ring_middle_phalanx"
+                      boundingObject Pose {
+                        translation 0.021133 -0.008432 0.009785
+                        rotation -1.000000 0.000000 0.000000 3.141593
+                        children [
+                          USE middle_phalanx
+                        ]
+                      }
+                      physics Physics {
+                        density -1
+                        mass 0.037000
+                        centerOfMass [ 0.000000 0.000000 0.000000 ]
+                        inertiaMatrix [
+                          5.542000e-06 5.727000e-06 6.682000e-06
+                          -6.070000e-07 -1.700000e-08 -2.300000e-08
+                        ]
+                      }
+                    }
+                  }
+                ]
+                name "ring_proximal_phalanx_2"
+                boundingObject Pose {
+                  translation 0.009643 0.000300 0.000784
+                  rotation -0.577350 -0.577350 -0.577350 2.094395
+                  children [
+                    USE proximal_phalanx_2
+                  ]
+                }
+                physics Physics {
+                  density -1
+                  mass 0.032000
+                  centerOfMass [ 0.000000 0.000000 0.000000 ]
+                  inertiaMatrix [
+                    4.798000e-06 2.862000e-06 4.234000e-06
+                    1.200000e-08 4.000000e-09 1.100000e-08
+                  ]
+                }
+              }
+            }
+          ]
+          name "ring_proximal_phalanx_1"
+          boundingObject Pose {
+            translation 0.008407 0.007766 0.014657
+            children [
+              USE proximal_phalanx_1
+            ]
+          }
+          physics Physics {
+            density -1
+            mass 0.044000
+            centerOfMass [ 0.000000 0.000000 0.000000 ]
+            inertiaMatrix [
+              1.149900e-05 7.796000e-06 1.475900e-05
+              3.049000e-06 1.210000e-07 1.120000e-07
+            ]
+          }
+        }
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          axis -1.000000 0.000000 -0.000000
+          anchor -0.069395 -0.001242 -0.021622
+        }
+        device [
+          RotationalMotor {
+            name "thumb_cmc_abb_joint"
+            maxVelocity 8.48
+            minPosition -0.349
+            maxPosition 2.094
+            maxTorque 0.95
+          }
+          PositionSensor {
+            name "thumb_cmc_abb_joint_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation -0.069395 -0.001242 -0.021622
+          rotation 0.000000 1.000000 0.000000 1.570796
+          children [
+            Pose {
+              translation -0.005356 0.000300 0.000784
+              rotation -0.577350 -0.577350 -0.577350 2.094395
+              children [
+                Shape {
+                  appearance DEF thumb_semi_palm_2_material PBRAppearance {
+                    baseColor 0.000000 0.000000 0.000000
+                    roughness 1.000000
+                    metalness 0
+                  }
+                  geometry USE proximal_phalanx_2
+                }
+              ]
+            }
+            HingeJoint {
+              jointParameters HingeJointParameters {
+                axis -0.000000 1.000000 0.000000
+                anchor 0.000000 0.014300 -0.013000
+              }
+              device [
+                RotationalMotor {
+                  name "thumb_cmc_flex_joint"
+                  maxVelocity 8.48
+                  minPosition -2.47
+                  maxPosition 2.443
+                  maxTorque 0.95
+                }
+                PositionSensor {
+                  name "thumb_cmc_flex_joint_sensor"
+                }
+              ]
+              endPoint Solid {
+                translation 0.000000 0.014300 -0.013000
+                rotation 0.577350 0.577350 -0.577350 2.094395
+                children [
+                  Pose {
+                    translation 0.011962 0.000000 -0.015853
+                    rotation 1.000000 0.000000 0.000000 1.570796
+                    children [
+                      Shape {
+                        appearance USE thumb_semi_palm_2_material
+                        geometry DEF thumb_semi_palm Mesh {
+                          url "/home/joel/distrobox/ros2-ubuntu/leap_ws/install/leap_description/share/leap_description/assets/leap_hand/thumb_semi_palm.stl"
+                        }
+                      }
+                    ]
+                  }
+                  HingeJoint {
+                    jointParameters HingeJointParameters {
+                      axis 0.000000 -1.000000 -0.000000
+                      anchor 0.000000 0.014500 -0.017000
+                    }
+                    device [
+                      RotationalMotor {
+                        name "thumb_mcp_joint"
+                        maxVelocity 8.48
+                        minPosition -1.2
+                        maxPosition 1.9
+                        maxTorque 0.95
+                      }
+                      PositionSensor {
+                        name "thumb_mcp_joint_sensor"
+                      }
+                    ]
+                    endPoint Solid {
+                      translation 0.000000 0.014500 -0.017000
+                      rotation -1.000000 0.000000 0.000000 1.570796
+                      children [
+                        Pose {
+                          translation 0.043969 0.057953 -0.008629
+                          children [
+                            Shape {
+                              appearance DEF thumb_middle_phalanx_material PBRAppearance {
+                                baseColor 0.000000 0.000000 0.000000
+                                roughness 1.000000
+                                metalness 0
+                              }
+                              geometry DEF thumb_middle_phalanx Mesh {
+                                url "/home/joel/distrobox/ros2-ubuntu/leap_ws/install/leap_description/share/leap_description/assets/leap_hand/thumb_middle_phalanx.stl"
+                              }
+                            }
+                          ]
+                        }
+                        HingeJoint {
+                          jointParameters HingeJointParameters {
+                            axis -0.000000 0.000000 -1.000000
+                            anchor 0.000000 0.046600 0.000200
+                          }
+                          device [
+                            RotationalMotor {
+                              name "thumb_ip_joint"
+                              maxVelocity 8.48
+                              minPosition -1.34
+                              maxPosition 1.88
+                              maxTorque 0.95
+                            }
+                            PositionSensor {
+                              name "thumb_ip_joint_sensor"
+                            }
+                          ]
+                          endPoint Solid {
+                            translation 0.000000 0.046600 0.000200
+                            rotation 0.000000 0.000000 1.000000 3.141593
+                            children [
+                              Pose {
+                                translation 0.062560 0.078460 0.048993
+                                children [
+                                  Shape {
+                                    appearance DEF thumb_distal_phalanx_material PBRAppearance {
+                                      roughness 1.000000
+                                      metalness 0
+                                    }
+                                    geometry DEF thumb_distal_phalanx Mesh {
+                                      url "/home/joel/distrobox/ros2-ubuntu/leap_ws/install/leap_description/share/leap_description/assets/leap_hand/thumb_distal_phalanx.stl"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                            name "thumb_distal_phalanx"
+                            boundingObject Pose {
+                              translation 0.062560 0.078460 0.048993
+                              children [
+                                USE thumb_distal_phalanx
+                              ]
+                            }
+                            physics Physics {
+                              density -1
+                              mass 0.049000
+                              centerOfMass [ 0.000000 0.000000 0.000000 ]
+                              inertiaMatrix [
+                                2.037200e-05 4.336000e-06 1.984500e-05
+                                -4.890000e-07 -3.000000e-08 -9.700000e-08
+                              ]
+                            }
+                          }
+                        }
+                      ]
+                      name "thumb_middle_phalanx"
+                      boundingObject Pose {
+                        translation 0.043969 0.057953 -0.008629
+                        children [
+                          USE thumb_middle_phalanx
+                        ]
+                      }
+                      physics Physics {
+                        density -1
+                        mass 0.038000
+                        centerOfMass [ 0.000000 0.000000 0.000000 ]
+                        inertiaMatrix [
+                          8.474000e-06 3.841000e-06 7.679000e-06
+                          2.410000e-07 2.600000e-08 2.500000e-08
+                        ]
+                      }
+                    }
+                  }
+                ]
+                name "thumb_semi_palm_2"
+                boundingObject Pose {
+                  translation 0.011962 0.000000 -0.015853
+                  rotation 1.000000 0.000000 0.000000 1.570796
+                  children [
+                    USE thumb_semi_palm
+                  ]
+                }
+                physics Physics {
+                  density -1
+                  mass 0.003000
+                  centerOfMass [ 0.000000 0.000000 0.000000 ]
+                  inertiaMatrix [
+                    5.930000e-07 5.490000e-07 2.240000e-07
+                    0.000000e+00 0.000000e+00 0.000000e+00
+                  ]
+                }
+              }
+            }
+          ]
+          name "thumb_semi_palm_1"
+          boundingObject Pose {
+            translation -0.005356 0.000300 0.000784
+            rotation -0.577350 -0.577350 -0.577350 2.094395
+            children [
+              USE proximal_phalanx_2
+            ]
+          }
+          physics Physics {
+            density -1
+            mass 0.032000
+            centerOfMass [ 0.000000 0.000000 0.000000 ]
+            inertiaMatrix [
+              4.798000e-06 2.862000e-06 4.234000e-06
+              1.200000e-08 4.000000e-09 1.100000e-08
+            ]
+          }
+        }
+      }
+    ]
+    name IS name
+    boundingObject Pose {
+      translation -0.020095 0.025758 -0.034722
+      children [
+        USE palm_lower
+      ]
+    }
+    physics Physics {
+      density -1
+      mass 0.237000
+      centerOfMass [ 0.000000 0.000000 0.000000 ]
+      inertiaMatrix [
+        3.540940e-04 2.609150e-04 5.292570e-04
+        -1.193000e-06 -2.445000e-06 -2.905000e-06
+      ]
+    }
+  }
+}

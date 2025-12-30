@@ -1,76 +1,112 @@
 #!/usr/bin/env python3
+"""
+A script to outline the fundamentals of the moveit_py motion planning API.
+"""
+
+import time
+
+# generic ros libraries
 import rclpy
-from rclpy.node import Node
-from rcl_interfaces.srv import GetParameters
-from rcl_interfaces.msg import ParameterType
-from moveit.planning import MoveItPy
+from rclpy.logging import get_logger
 
-PARAMS = [
-    "robot_description",
-    "robot_description_semantic",
-    "robot_description_kinematics",
-    "planning_pipelines",
-    "default_planning_pipeline",
-    "ompl",  # OMPL pipeline config lives under this namespace
-]
+# moveit python library
+from moveit.core.robot_state import RobotState
+from moveit.planning import (
+    MoveItPy,
+    MultiPipelinePlanRequestParameters,
+)
+from moveit.core.kinematic_constraints import construct_joint_constraint
 
-def get_params(node, target_node: str, names):
-    cli = node.create_client(GetParameters, f"{target_node}/get_parameters")
-    if not cli.wait_for_service(timeout_sec=5.0):
-        raise RuntimeError(f"Service {target_node}/get_parameters not available")
 
-    req = GetParameters.Request()
-    req.names = list(names)
-    fut = cli.call_async(req)
+def plan_and_execute(
+    robot,
+    planning_component,
+    logger,
+    single_plan_parameters=None,
+    multi_plan_parameters=None,
+    sleep_time=0.0,
+):
+    """Helper function to plan and execute a motion."""
+    # plan to goal
+    logger.info("Planning trajectory")
+    if multi_plan_parameters is not None:
+        plan_result = planning_component.plan(
+            multi_plan_parameters=multi_plan_parameters
+        )
+    elif single_plan_parameters is not None:
+        plan_result = planning_component.plan(
+            single_plan_parameters=single_plan_parameters
+        )
+    else:
+        plan_result = planning_component.plan()
 
-    rclpy.spin_until_future_complete(node, fut, timeout_sec=10.0)
-    resp = fut.result()
-    if resp is None:
-        raise RuntimeError("Failed to get parameters (timeout or error)")
+    # execute the plan
+    if plan_result:
+        logger.info("Executing plan")
+        robot_trajectory = plan_result.trajectory
+        robot.execute(robot_trajectory, controllers=[])
+    else:
+        logger.error("Planning failed")
 
-    out = {}
-    for name, val in zip(req.names, resp.values):
-        if val.type == ParameterType.PARAMETER_STRING:
-            out[name] = val.string_value
-        elif val.type == ParameterType.PARAMETER_STRING_ARRAY:
-            out[name] = list(val.string_array_value)
-        elif val.type == ParameterType.PARAMETER_BOOL:
-            out[name] = bool(val.bool_value)
-        elif val.type == ParameterType.PARAMETER_INTEGER:
-            out[name] = int(val.integer_value)
-        elif val.type == ParameterType.PARAMETER_DOUBLE:
-            out[name] = float(val.double_value)
-        else:
-            # many MoveIt pipeline configs aren't simple scalar param types
-            # (they can be nested YAML loaded as parameters), so skip here
-            pass
+    time.sleep(sleep_time)
 
-    return out
 
 def main():
+
+    ###################################################################
+    # MoveItPy Setup
+    ###################################################################
     rclpy.init()
-    node = Node("leap_moveitpy_bootstrap")
-    node.set_parameters([rclpy.parameter.Parameter("use_sim_time",
-                                                  rclpy.parameter.Parameter.Type.BOOL,
-                                                  True)])
+    logger = get_logger("moveit_py.pose_goal")
 
-    # Pull key params from the already-running move_group
-    params = get_params(node, "/move_group", PARAMS)
+    # instantiate MoveItPy instance and get planning component
+    leap = MoveItPy(node_name="moveit_py")
+    leap_hand = leap.get_planning_component("hand")
+    logger.info("MoveItPy instance created")
 
-    # Build a minimal config dict for MoveItPy
-    cfg = dict(params)
-    cfg["use_sim_time"] = True
+    robot_model = leap.get_robot_model()
+    robot_state = RobotState(robot_model)
 
-    moveit = MoveItPy(node_name="leap_moveitpy", config_dict=cfg)
+    ###########################################################################
+    # Plan 4 - set goal state with constraints
+    ###########################################################################
 
-    hand = moveit.get_planning_component("hand")  # <-- your group name
-    hand.set_start_state_to_current_state()
-    hand.set_goal_state(configuration={"index_mcp_joint": 0.2})
-    plan = hand.plan()
-    if plan:
-        hand.execute()
+    # set plan start state to current state
+    leap_hand.set_start_state_to_current_state()
 
-    rclpy.shutdown()
+    # set constraints message
 
+    st = time.time()
+
+    joint_values = {
+        "index_pip_flex_joint": 0.0,
+        "index_pip_abb_joint": 0.0,
+        "index_mcp_joint": 0.0,
+        "index_dip_joint": 0.0,
+        "middle_pip_flex_joint": 0.0,
+        "middle_pip_abb_joint": 0.0,
+        "middle_mcp_joint": 0.0,
+        "middle_dip_joint": 0.0,
+        "ring_pip_flex_joint": 0.0,
+        "ring_pip_abb_joint": 0.0,
+        "ring_mcp_joint": 0.0,
+        "ring_dip_joint": 0.0,
+        "thumb_cmc_abb_joint": 0.0,
+        "thumb_cmc_flex_joint": 0.0,
+        "thumb_mcp_joint": 0.0,
+        "thumb_ip_joint": 0.0,
+    }
+    robot_state.joint_positions = joint_values
+    joint_constraint = construct_joint_constraint(
+        robot_state=robot_state,
+        joint_model_group=leap.get_robot_model().get_joint_model_group("hand"),
+    )
+    leap_hand.set_goal_state(motion_plan_constraints=[joint_constraint])
+
+    # plan to goal
+    plan_and_execute(leap, leap_hand, logger, sleep_time=3.0)
+
+    logger.debug(f"Time taken for planning: {time.time() - st} seconds")
+    
 if __name__ == "__main__":
     main()

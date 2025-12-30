@@ -14,7 +14,7 @@ setup(
         ('share/' + package_name, ['package.xml']),
         (os.path.join('share', package_name, 'launch'), glob('launch/*.launch.py')),
         (os.path.join('share', package_name, 'src'), glob('src/*.py')),
-        (os.path.join('share', package_name, 'cfg'), glob('cfg/*.yaml')),
+        (os.path.join('share', package_name, 'config'), glob('config/*.yaml')),
         #('share/' + package_name, ['launch/fingers_nodes.py'])
     ],
     install_requires=['setuptools','dynamixel_sdk'],
@@ -54,6 +54,7 @@ setup(
             'collect_data = leap_control.hand_control.collect_data:main',
             'leap_control_driver = src.leap_control_driver:main',
             'test = src.test:main',
+            'leap_moveit_planner = src.leap_moveit_planner:main',
         ],
     },
 )

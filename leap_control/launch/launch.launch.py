@@ -1,32 +1,28 @@
 from launch import LaunchDescription
-from launch.actions import ExecuteProcess
-
-#!/usr/bin/env python3
+from launch_ros.actions import Node
+from ament_index_python.packages import get_package_share_directory
+import os
+import yaml
+import copy
 
 def generate_launch_description():
-    return LaunchDescription([
-        # Terminal 1 - Managers
-        ExecuteProcess(
-            cmd=['gnome-terminal', '--', 'bash', '-c',
-                 'ros2 run leap_hand_control hand_manager & '
-                 'ros2 run leap_hand_control thumb_manager & '
-                 'ros2 run leap_hand_control index_manager & '
-                 'ros2 run leap_hand_control ring_manager & '
-                 'ros2 run leap_hand_control middle_manager; exec bash'],
-            shell=False
-        ),
 
-        # Terminal 2 - set_fingers_position
-        ExecuteProcess(
-            cmd=['gnome-terminal', '--', 'bash', '-c',
-                 'ros2 run leap_hand_control set_fingers_position; exec bash'],
-            shell=False
-        ),
+    pkg_share = get_package_share_directory('leap_control')
+    dynamixel_yaml_file = os.path.join(pkg_share, 'config', 'dynamixel.yaml')
+        
+    with open(dynamixel_yaml_file, 'r') as f:
+        dynamixel_config = yaml.safe_load(f)
 
-        # Terminal 3 - read_sensors
-        ExecuteProcess(
-            cmd=['gnome-terminal', '--', 'bash', '-c',
-                 'ros2 run leap_hand_control read_sensors ; exec bash'],
-            shell=False
-        ),
-    ])
+    nodes = []
+
+    nodes.append(
+        Node(
+            package='leap_control',
+            executable='leap_control_driver',
+            name='leap_control_driver_node',
+            parameters=[dynamixel_config],
+            output='screen'
+        )
+    )
+
+    return LaunchDescription(nodes)

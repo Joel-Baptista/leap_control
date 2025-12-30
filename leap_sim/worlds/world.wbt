@@ -1,0 +1,57 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "../protos/Leap.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/floors/protos/CircleArena.proto"
+
+WorldInfo {
+  title "LEAP WORLD — pkg leap_sim/worlds/world.wbt"
+  basicTimeStep 1
+  linearDamping 0.01     # try 0.01–0.05
+  angularDamping 0.02    # try 0.02–0.08
+
+  # contactProperties [
+  #   ContactProperties {
+  #   material1 "default"
+  #   material2 "default"
+  #   coulombFriction 0.6   # 0.6–1.2 typical
+  #   bounce 0
+  #   softERP 0.2           # 0.1–0.4 = “softer” but stable contacts
+  #   softCFM 1e-4          # 1e-5–1e-3; start 1e-4
+  #   maxContactJoints 20   # raises the “10 deepest” cap, but don’t go crazy
+  # }
+  #  ]
+
+}
+
+Viewpoint {
+  orientation -0.33185733874619844 -0.09874274160469809 0.9381474178937331 3.686018050088086
+  position 1.700313773507203 1.0549607538959629 1.4846240848267684
+  follow "Leap"
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+CircleArena {
+}
+
+Leap {
+  translation     0 0 0.1
+  rotation        0 3.14 0 3.14
+  name            "Leap"  # Is `Robot.name`.
+  controller      "<extern>"   # Is `Robot.controller`.
+  controllerUrl   "ipc://1234:Leap"
+  controllerArgs  []       # Is `Robot.controllerArgs`.
+  customData      ""       # Is `Robot.customData`.
+  supervisor      FALSE    # Is `Robot.supervisor`.
+  synchronization TRUE     # Is `Robot.synchronization`.
+  selfCollision   TRUE    # Is `Robot.selfCollision`.
+  motorPID          20 0 0     # (P, I, D)
+  motorMaxVelocity  5.0       # rad/s
+  motorMaxTorque    0.3       # N·m
+  motorMinPosition -3.14      # rad
+  motorMaxPosition  3.14      # rad
+  
+}
