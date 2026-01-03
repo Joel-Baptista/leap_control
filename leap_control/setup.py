@@ -52,9 +52,8 @@ setup(
             'check_colisions = leap_control.hand_control.check_colisions:main',
             'read_sensors = leap_control.fsr_sensors.fsr_sensors_node:main',
             'collect_data = leap_control.hand_control.collect_data:main',
-            'leap_control_driver = src.leap_control_driver:main',
-            'test = src.test:main',
-            'leap_moveit_planner = src.leap_moveit_planner:main',
+            'leap_control_driver = leap_control.leap_control_driver:main',
+            'leap_moveit_planner = leap_control.leap_moveit_planner:main',
         ],
     },
 )

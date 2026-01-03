@@ -75,6 +75,14 @@ def generate_launch_description():
         parameters=[moveit_config.robot_description],
     )
 
+    move_group = Node(
+        package="moveit_ros_move_group",
+        executable="move_group",
+        output="screen",
+        parameters=[moveit_config.to_dict()]
+    )
+
+
     ros2_controllers_path = os.path.join(
         get_package_share_directory("leap_moveit"),
         "config",
@@ -108,6 +116,7 @@ def generate_launch_description():
             example_file,
             moveit_py_node,
             robot_state_publisher,
+            move_group,
             ros2_control_node,
             rviz_node,
             static_tf,

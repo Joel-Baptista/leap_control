@@ -88,7 +88,7 @@ def generate_launch_description():
         executable="create",
         arguments=[
             "-name", "leap_hand",
-            "-topic", "robot_description",
+            "-string", robot_description,
             "-x", "0.0", "-y", "0.0", "-z", "0.1",
             # roll/pitch/yaw flags are -R -P -Y; you want yaw:
             "-R", "3.14159",
@@ -136,13 +136,13 @@ def generate_launch_description():
         SetEnvironmentVariable("GZ_SIM_SYSTEM_PLUGIN_PATH", gz_system_plugin_path),
         SetEnvironmentVariable("GZ_SIM_PLUGIN_PATH", gz_plugin_path),
         gz_sim,
-        TimerAction(period=2.0, actions=[spawn_entity]),
-        TimerAction(period=2.0, actions=[spawn_pos])
+        TimerAction(period=4.0, actions=[spawn_entity]),
+        TimerAction(period=2.0, actions=[spawn_pos, gz_driver])
     ])
 
 
     # ld.add_action(rsp_node)
     ld.add_action(clock_bridge)
     ld.add_action(robot_ld)
-    ld.add_action(TimerAction(period=10.0, actions=[gz_driver]))
+    # ld.add_action(TimerAction(period=10.0, actions=[gz_driver]))
     return ld

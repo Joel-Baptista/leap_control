@@ -37,6 +37,12 @@ Typical use cases:
 - OS: Ubuntu 24
 - ROS2 Kilted
 
+
+Some specific use cases may require the installation of the following python packages:
+- [urdf2webots](https://pypi.org/project/urdf2webots/)
+
+These python dependencies are not required to utilize the repository, but may be required to develop new code.
+
 ### Build
 ```bash
 # ROS 2

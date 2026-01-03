@@ -41,14 +41,6 @@ def generate_launch_description():
         ],
     )
 
-    robot_state_publisher_node = Node(
-        package="robot_state_publisher",
-        executable="robot_state_publisher",
-        name="robot_state_publisher",
-        output="screen",
-        parameters=[{"use_sim_time": True, "robot_description": robot_description}],
-        arguments=[robot_description],
-    )
 
     exit_event = RegisterEventHandler(
         event_handler=launch.event_handlers.OnProcessExit(
@@ -57,41 +49,10 @@ def generate_launch_description():
         )
     )
 
-    move_group = IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(
-                f"{leap_moveit_share}/launch/move_group.launch.py"
-            ),
-        )
-    
-    rviz = IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(
-                f"{leap_moveit_share}/launch/moveit_rviz.launch.py"
-            ),
-        )
-    
-    controller_manager = Node(
-        package="controller_manager",
-        executable="ros2_control_node",
-        parameters=[robot_description, controllers_yaml]
-    )
-
-
-    controllers = IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(
-                f"{leap_moveit_share}/launch/spawn_controllers.launch.py"
-            ),
-        )
-    
-
     return LaunchDescription(
         [
             webots,
             my_robot_driver,
-            TimerAction(period=3.0, actions=[robot_state_publisher_node]),
-            move_group,
-            rviz,
-            controller_manager,
-            controllers,
             exit_event,
         ]
     )
