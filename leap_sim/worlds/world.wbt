@@ -7,22 +7,27 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/project
 
 WorldInfo {
   title "LEAP WORLD — pkg leap_sim/worlds/world.wbt"
-  basicTimeStep 1
-  linearDamping 0.01     # try 0.01–0.05
-  angularDamping 0.02    # try 0.02–0.08
+  basicTimeStep 16
+  ERP 0.1 # (Error Reduction Parameter) 
+  CFM 1e-2 # (Constraint Force Mixing)
 
-  # contactProperties [
-  #   ContactProperties {
-  #   material1 "default"
-  #   material2 "default"
-  #   coulombFriction 0.6   # 0.6–1.2 typical
-  #   bounce 0
-  #   softERP 0.2           # 0.1–0.4 = “softer” but stable contacts
-  #   softCFM 1e-4          # 1e-5–1e-3; start 1e-4
-  #   maxContactJoints 20   # raises the “10 deepest” cap, but don’t go crazy
-  # }
-  #  ]
+  linearDamping 0.02
+  angularDamping 0.04
 
+  contactProperties [
+    ContactProperties {
+      material1 "default"
+      material2 "default"
+
+      coulombFriction 0.6
+      bounce 0
+      bounceVelocity 100
+
+      softERP 0.1
+      softCFM 1e-3      
+      maxContactJoints 10
+    }
+  ]
 }
 
 Viewpoint {

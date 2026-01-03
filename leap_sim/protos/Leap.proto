@@ -2,7 +2,7 @@
 # license: Apache License 2.0
 # license url: http://www.apache.org/licenses/LICENSE-2.0
 # This is a proto file for Webots for the Leap
-# Extracted from: /home/joel/distrobox/ros2-ubuntu/leap_ws/src/leap_control/robot.urdf
+# Extracted from: /home/joel/distrobox/ros2-ubuntu/leap_ws/src/leap_control/leap_description/urdf/robot.urdf
 
 PROTO Leap [
   field  SFVec3f     translation     0 0 0
@@ -35,7 +35,7 @@ PROTO Leap [
               metalness 0
             }
             geometry DEF palm_lower Mesh {
-              url "/home/joel/distrobox/ros2-ubuntu/leap_ws/install/leap_description/share/leap_description/assets/leap_hand/palm_lower.stl"
+              url "/home/joel/distrobox/ros2-ubuntu/leap_ws/src/leap_control/leap_description/assets/leap_hand/palm_lower.stl"
             }
           }
         ]
@@ -71,7 +71,7 @@ PROTO Leap [
                     metalness 0
                   }
                   geometry DEF proximal_phalanx_1 Mesh {
-                    url "/home/joel/distrobox/ros2-ubuntu/leap_ws/install/leap_description/share/leap_description/assets/leap_hand/proximal_phalanx_1.stl"
+                    url "/home/joel/distrobox/ros2-ubuntu/leap_ws/src/leap_control/leap_description/assets/leap_hand/proximal_phalanx_1.stl"
                   }
                 }
               ]
@@ -108,7 +108,7 @@ PROTO Leap [
                           metalness 0
                         }
                         geometry DEF proximal_phalanx_2 Mesh {
-                          url "/home/joel/distrobox/ros2-ubuntu/leap_ws/install/leap_description/share/leap_description/assets/leap_hand/proximal_phalanx_2.stl"
+                          url "/home/joel/distrobox/ros2-ubuntu/leap_ws/src/leap_control/leap_description/assets/leap_hand/proximal_phalanx_2.stl"
                         }
                       }
                     ]
@@ -145,7 +145,7 @@ PROTO Leap [
                                 metalness 0
                               }
                               geometry DEF middle_phalanx Mesh {
-                                url "/home/joel/distrobox/ros2-ubuntu/leap_ws/install/leap_description/share/leap_description/assets/leap_hand/middle_phalanx.stl"
+                                url "/home/joel/distrobox/ros2-ubuntu/leap_ws/src/leap_control/leap_description/assets/leap_hand/middle_phalanx.stl"
                               }
                             }
                           ]
@@ -180,7 +180,7 @@ PROTO Leap [
                                       metalness 0
                                     }
                                     geometry DEF distal_phalanx Mesh {
-                                      url "/home/joel/distrobox/ros2-ubuntu/leap_ws/install/leap_description/share/leap_description/assets/leap_hand/distal_phalanx.stl"
+                                      url "/home/joel/distrobox/ros2-ubuntu/leap_ws/src/leap_control/leap_description/assets/leap_hand/distal_phalanx.stl"
                                     }
                                   }
                                 ]
@@ -191,7 +191,9 @@ PROTO Leap [
                               translation 0.013286 -0.006114 0.014500
                               rotation 1.000000 0.000000 0.000000 3.141593
                               children [
-                                USE distal_phalanx
+                                DEF distal_phalanx_collision Mesh {
+                                  url "/home/joel/distrobox/ros2-ubuntu/leap_ws/src/leap_control/leap_description/assets/leap_hand/distal_phalanx_collision.stl"
+                                }
                               ]
                             }
                             physics Physics {
@@ -211,7 +213,9 @@ PROTO Leap [
                         translation 0.021133 -0.008432 0.009785
                         rotation -1.000000 0.000000 0.000000 3.141593
                         children [
-                          USE middle_phalanx
+                          DEF middle_phalanx_collision Mesh {
+                            url "/home/joel/distrobox/ros2-ubuntu/leap_ws/src/leap_control/leap_description/assets/leap_hand/middle_phalanx_collision.stl"
+                          }
                         ]
                       }
                       physics Physics {
@@ -231,7 +235,9 @@ PROTO Leap [
                   translation 0.009643 0.000300 0.000784
                   rotation -0.577350 -0.577350 -0.577350 2.094395
                   children [
-                    USE proximal_phalanx_2
+                    DEF proximal_phalanx_2_collision Mesh {
+                      url "/home/joel/distrobox/ros2-ubuntu/leap_ws/src/leap_control/leap_description/assets/leap_hand/proximal_phalanx_2_collision.stl"
+                    }
                   ]
                 }
                 physics Physics {
@@ -247,10 +253,24 @@ PROTO Leap [
             }
           ]
           name "index_proximal_phalanx_1"
-          boundingObject Pose {
-            translation 0.008407 0.007766 0.014657
+          boundingObject Group {
             children [
-              USE proximal_phalanx_1
+              Pose {
+                translation 0.008407 0.007766 0.014657
+                children [
+                  DEF proximal_phalanx_1_collision Mesh {
+                    url "/home/joel/distrobox/ros2-ubuntu/leap_ws/src/leap_control/leap_description/assets/leap_hand/proximal_phalanx_1_collision.stl"
+                  }
+                ]
+              }
+              Pose {
+                translation -0.000000 0.007000 0.014000
+                children [
+                  Box {
+                     size 0.022500 0.030000 0.035000
+                  }
+                ]
+              }
             ]
           }
           physics Physics {
@@ -392,7 +412,7 @@ PROTO Leap [
                               translation 0.013286 -0.006114 0.014500
                               rotation 1.000000 0.000000 0.000000 3.141593
                               children [
-                                USE distal_phalanx
+                                USE distal_phalanx_collision
                               ]
                             }
                             physics Physics {
@@ -412,7 +432,7 @@ PROTO Leap [
                         translation 0.021133 -0.008432 0.009785
                         rotation -1.000000 0.000000 0.000000 3.141593
                         children [
-                          USE middle_phalanx
+                          USE middle_phalanx_collision
                         ]
                       }
                       physics Physics {
@@ -432,7 +452,7 @@ PROTO Leap [
                   translation 0.009643 0.000300 0.000784
                   rotation -0.577350 -0.577350 -0.577350 2.094395
                   children [
-                    USE proximal_phalanx_2
+                    USE proximal_phalanx_2_collision
                   ]
                 }
                 physics Physics {
@@ -448,10 +468,22 @@ PROTO Leap [
             }
           ]
           name "middle_proximal_phalanx_1"
-          boundingObject Pose {
-            translation 0.008407 0.007766 0.014657
+          boundingObject Group {
             children [
-              USE proximal_phalanx_1
+              Pose {
+                translation 0.008407 0.007766 0.014657
+                children [
+                  USE proximal_phalanx_1_collision
+                ]
+              }
+              Pose {
+                translation -0.000000 0.007000 0.014000
+                children [
+                  Box {
+                     size 0.022500 0.030000 0.035000
+                  }
+                ]
+              }
             ]
           }
           physics Physics {
@@ -593,7 +625,7 @@ PROTO Leap [
                               translation 0.013286 -0.006114 0.014500
                               rotation 1.000000 0.000000 0.000000 3.141593
                               children [
-                                USE distal_phalanx
+                                USE distal_phalanx_collision
                               ]
                             }
                             physics Physics {
@@ -613,7 +645,7 @@ PROTO Leap [
                         translation 0.021133 -0.008432 0.009785
                         rotation -1.000000 0.000000 0.000000 3.141593
                         children [
-                          USE middle_phalanx
+                          USE middle_phalanx_collision
                         ]
                       }
                       physics Physics {
@@ -633,7 +665,7 @@ PROTO Leap [
                   translation 0.009643 0.000300 0.000784
                   rotation -0.577350 -0.577350 -0.577350 2.094395
                   children [
-                    USE proximal_phalanx_2
+                    USE proximal_phalanx_2_collision
                   ]
                 }
                 physics Physics {
@@ -649,10 +681,22 @@ PROTO Leap [
             }
           ]
           name "ring_proximal_phalanx_1"
-          boundingObject Pose {
-            translation 0.008407 0.007766 0.014657
+          boundingObject Group {
             children [
-              USE proximal_phalanx_1
+              Pose {
+                translation 0.008407 0.007766 0.014657
+                children [
+                  USE proximal_phalanx_1_collision
+                ]
+              }
+              Pose {
+                translation -0.000000 0.007000 0.014000
+                children [
+                  Box {
+                     size 0.022500 0.030000 0.035000
+                  }
+                ]
+              }
             ]
           }
           physics Physics {
@@ -729,7 +773,7 @@ PROTO Leap [
                       Shape {
                         appearance USE thumb_semi_palm_2_material
                         geometry DEF thumb_semi_palm Mesh {
-                          url "/home/joel/distrobox/ros2-ubuntu/leap_ws/install/leap_description/share/leap_description/assets/leap_hand/thumb_semi_palm.stl"
+                          url "/home/joel/distrobox/ros2-ubuntu/leap_ws/src/leap_control/leap_description/assets/leap_hand/thumb_semi_palm.stl"
                         }
                       }
                     ]
@@ -765,7 +809,7 @@ PROTO Leap [
                                 metalness 0
                               }
                               geometry DEF thumb_middle_phalanx Mesh {
-                                url "/home/joel/distrobox/ros2-ubuntu/leap_ws/install/leap_description/share/leap_description/assets/leap_hand/thumb_middle_phalanx.stl"
+                                url "/home/joel/distrobox/ros2-ubuntu/leap_ws/src/leap_control/leap_description/assets/leap_hand/thumb_middle_phalanx.stl"
                               }
                             }
                           ]
@@ -800,7 +844,7 @@ PROTO Leap [
                                       metalness 0
                                     }
                                     geometry DEF thumb_distal_phalanx Mesh {
-                                      url "/home/joel/distrobox/ros2-ubuntu/leap_ws/install/leap_description/share/leap_description/assets/leap_hand/thumb_distal_phalanx.stl"
+                                      url "/home/joel/distrobox/ros2-ubuntu/leap_ws/src/leap_control/leap_description/assets/leap_hand/thumb_distal_phalanx.stl"
                                     }
                                   }
                                 ]
@@ -810,7 +854,9 @@ PROTO Leap [
                             boundingObject Pose {
                               translation 0.062560 0.078460 0.048993
                               children [
-                                USE thumb_distal_phalanx
+                                DEF thumb_distal_phalanx_collision Mesh {
+                                  url "/home/joel/distrobox/ros2-ubuntu/leap_ws/src/leap_control/leap_description/assets/leap_hand/thumb_distal_phalanx_collision.stl"
+                                }
                               ]
                             }
                             physics Physics {
@@ -829,7 +875,9 @@ PROTO Leap [
                       boundingObject Pose {
                         translation 0.043969 0.057953 -0.008629
                         children [
-                          USE thumb_middle_phalanx
+                          DEF thumb_middle_phalanx_collision Mesh {
+                            url "/home/joel/distrobox/ros2-ubuntu/leap_ws/src/leap_control/leap_description/assets/leap_hand/thumb_middle_phalanx_collision.stl"
+                          }
                         ]
                       }
                       physics Physics {
@@ -849,7 +897,9 @@ PROTO Leap [
                   translation 0.011962 0.000000 -0.015853
                   rotation 1.000000 0.000000 0.000000 1.570796
                   children [
-                    USE thumb_semi_palm
+                    DEF thumb_semi_palm_collision Mesh {
+                      url "/home/joel/distrobox/ros2-ubuntu/leap_ws/src/leap_control/leap_description/assets/leap_hand/thumb_semi_palm_collision.stl"
+                    }
                   ]
                 }
                 physics Physics {
@@ -869,7 +919,7 @@ PROTO Leap [
             translation -0.005356 0.000300 0.000784
             rotation -0.577350 -0.577350 -0.577350 2.094395
             children [
-              USE proximal_phalanx_2
+              USE proximal_phalanx_2_collision
             ]
           }
           physics Physics {
@@ -888,7 +938,9 @@ PROTO Leap [
     boundingObject Pose {
       translation -0.020095 0.025758 -0.034722
       children [
-        USE palm_lower
+        DEF palm_lower_collision Mesh {
+          url "/home/joel/distrobox/ros2-ubuntu/leap_ws/src/leap_control/leap_description/assets/leap_hand/palm_lower_collision.stl"
+        }
       ]
     }
     physics Physics {

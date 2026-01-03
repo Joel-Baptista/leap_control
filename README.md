@@ -58,6 +58,19 @@ source install/setup.bash
 
 ## Usage
 
+### Convert URDF to Proto
+
+After changing the URDF file, we need to run some commands to update the description for Webots.
+To update the proto file, run the following commands from the root of the repository:
+```bash
+xacro leap_description/assets/leap_hand/robot.urdf.xacro > leap_description/urdf/robot.urdf
+python -m urdf2webots.importer --input=leap_description/urdf/robot.urdf --output=leap_sim/protos --normal --init-pos="[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]"
+rm leap_sim/protos/Leap_textures -rf
+cd ~/leap_ws
+colcon build --symlink-install
+```
+Make sure you have [urdf2webots](https://pypi.org/project/urdf2webots/) installed and the virtual environment sourced.
+
 ### Launch
 
 ### Run Node
