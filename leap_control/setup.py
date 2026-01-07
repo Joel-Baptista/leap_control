@@ -13,6 +13,7 @@ setup(
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
         (os.path.join('share', package_name, 'launch'), glob('launch/*.launch.py')),
+        (os.path.join('share', package_name, 'launch'), glob('utils/*.py')),
         (os.path.join('share', package_name, 'src'), glob('src/*.py')),
         (os.path.join('share', package_name, 'config'), glob('config/*.yaml')),
         #('share/' + package_name, ['launch/fingers_nodes.py'])
@@ -54,6 +55,7 @@ setup(
             'collect_data = leap_control.hand_control.collect_data:main',
             'leap_control_driver = leap_control.leap_control_driver:main',
             'leap_moveit_planner = leap_control.leap_moveit_planner:main',
+            'fsr_sensor_reader = leap_control.fsr_sensor_reader:main',
         ],
     },
 )

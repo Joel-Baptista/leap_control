@@ -64,6 +64,42 @@
         <joint name="thumb_ip_joint" value="0.6703"/>
         <joint name="thumb_mcp_joint" value="1.3519"/>
     </group_state>
+    <group_state name="grasp_thumb_high" group="hand">
+        <joint name="index_dip_joint" value="0.8047"/>
+        <joint name="index_mcp_joint" value="0.8546"/>
+        <joint name="index_pip_abb_joint" value="0"/>
+        <joint name="index_pip_flex_joint" value="1.5835"/>
+        <joint name="middle_dip_joint" value="0.8047"/>
+        <joint name="middle_mcp_joint" value="0.8546"/>
+        <joint name="middle_pip_abb_joint" value="0"/>
+        <joint name="middle_pip_flex_joint" value="1.5834"/>
+        <joint name="ring_dip_joint" value="0.8047"/>
+        <joint name="ring_mcp_joint" value="0.8546"/>
+        <joint name="ring_pip_abb_joint" value="0"/>
+        <joint name="ring_pip_flex_joint" value="1.5834"/>
+        <joint name="thumb_cmc_abb_joint" value="2.04"/>
+        <joint name="thumb_cmc_flex_joint" value="-2.1171"/>
+        <joint name="thumb_ip_joint" value="0.2789"/>
+        <joint name="thumb_mcp_joint" value="0.9066"/>
+    </group_state>
+    <group_state name="grasp_thumb_low" group="hand">
+        <joint name="index_dip_joint" value="0.8047"/>
+        <joint name="index_mcp_joint" value="0.8546"/>
+        <joint name="index_pip_abb_joint" value="0"/>
+        <joint name="index_pip_flex_joint" value="1.5835"/>
+        <joint name="middle_dip_joint" value="0.8047"/>
+        <joint name="middle_mcp_joint" value="0.8546"/>
+        <joint name="middle_pip_abb_joint" value="0"/>
+        <joint name="middle_pip_flex_joint" value="1.5834"/>
+        <joint name="ring_dip_joint" value="0.8047"/>
+        <joint name="ring_mcp_joint" value="0.8546"/>
+        <joint name="ring_pip_abb_joint" value="0"/>
+        <joint name="ring_pip_flex_joint" value="1.5834"/>
+        <joint name="thumb_cmc_abb_joint" value="2.094"/>
+        <joint name="thumb_cmc_flex_joint" value="-1.5743"/>
+        <joint name="thumb_ip_joint" value="0.2789"/>
+        <joint name="thumb_mcp_joint" value="0.9066"/>
+    </group_state>
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
     <end_effector name="thumb_ee" parent_link="thumb_distal_phalanx" group="hand"/>
     <end_effector name="ring_ee" parent_link="ring_distal_phalanx" group="hand"/>

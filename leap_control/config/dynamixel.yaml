@@ -2,27 +2,24 @@ port_name: '/dev/ttyUSB0'
 baudrate: 4000000
 protocol_version: 2.0
 
-torque_enable: 64
-current_based_position_mode: 5
+pwd_limit: 885
+current_limit: 1800
+velocity_limit: 350
 
+operating_mode: "current-based position"
 
-addr_operating_mode: 11
-addr_current_limit: 38
-addr_goal_current: 102
-addr_profile_velocity: 112
-addr_profile_velocity: 112
-addr_goal_position: 116
-addr_present_current: 126
-addr_present_velocity: 128
-addr_present_position: 132
-addr_indirect_start: 168
+pos_res: 0.0015343541
+vel_res: 0.2288857142
+effort_res: 0.000517
 
-current_limit_value: 1800
-goal_current_value: 500
+vel_i_gain: 1600
+vel_p_gain: 50
+pos_d_gain: 1900
+pos_i_gain: 0
+pos_p_gain: 2100
 
-vel_length: 4
-pos_length: 4
-curr_length: 2
-total_length: 10
+goal_pwm: 885
+goal_current: 500
+profile_velocity: 100
 
-profile_velocity_value: 50
+neutral_pos: 2048

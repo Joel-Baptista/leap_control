@@ -17,15 +17,15 @@ class FSRSensorNode(Node):
         # Criar ficheiro CSV
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 
-        directory = "/home/beatrix/ros2_ws/src/leap_control/leap_hand_control/leap_hand_control/data/fsr_sensors/"
-        os.makedirs(directory, exist_ok=True)
-        self.csv_filename = os.path.join(directory, f'fsr_data_{timestamp}.csv')
-        self.csv_file = open(self.csv_filename, mode='w', newline='')
-        self.csv_writer = csv.writer(self.csv_file)
+        # directory = "/home/beatrix/ros2_ws/src/leap_control/leap_hand_control/leap_hand_control/data/fsr_sensors/"
+        # os.makedirs(directory, exist_ok=True)
+        # self.csv_filename = os.path.join(directory, f'fsr_data_{timestamp}.csv')
+        # self.csv_file = open(self.csv_filename, mode='w', newline='')
+        # self.csv_writer = csv.writer(self.csv_file)
         self.start_time = self.get_clock().now()
 
         # Escrever cabeçalho
-        self.csv_writer.writerow(['timestamp', 'FSR1','FSR2','FSR3','FSR4','FSR5'])
+        # self.csv_writer.writerow(['timestamp', 'FSR1','FSR2','FSR3','FSR4','FSR5'])
 
     def read_fsr_data(self):
         if self.serial_port.in_waiting > 0:
