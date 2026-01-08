@@ -131,7 +131,7 @@
             <parent link="${root}" />
             <child link="${finger}_proximal_phalanx_1" />
             <axis xyz="0 0 -1" />
-            <limit effort="0.95" velocity="8.48" acceleration="20.0" lower="-0.314" upper="2.23" />
+            <limit effort="0.95" velocity="8.48" acceleration="20.0" lower="-0.31416" upper="2.3038" />
             <joint_properties friction="0.0" />
         </joint>
 
@@ -141,7 +141,7 @@
             <parent link="${finger}_proximal_phalanx_1" />
             <child link="${finger}_proximal_phalanx_2" />
             <axis xyz="0 0 -1" />
-            <limit effort="0.95" velocity="8.48" acceleration="20.0" lower="-1.047" upper="1.047" />
+            <limit effort="0.95" velocity="8.48" acceleration="20.0" lower="-1.378810" upper="1.378810"/>
             <joint_properties friction="0.0" />
         </joint>
 
@@ -151,7 +151,7 @@
             <parent link="${finger}_proximal_phalanx_2" />
             <child link="${finger}_middle_phalanx" />
             <axis xyz="0 0 -1" />
-            <limit effort="0.95" velocity="8.48" acceleration="20.0" lower="-0.506" upper="1.885" />
+            <limit effort="0.95" velocity="8.48" acceleration="20.0" lower="-0.45379" upper="2.44346" />
             <joint_properties friction="0.0" />
         </joint>
 
@@ -162,7 +162,7 @@
             <parent link="${finger}_middle_phalanx" />
             <child link="${finger}_distal_phalanx" />
             <axis xyz="0 0 -1" />
-            <limit effort="0.95" velocity="8.48" acceleration="20.0" lower="-0.366" upper="2.042" />
+            <limit effort="0.95" velocity="8.48" acceleration="20.0" lower="-0.3491" upper="1.867502" />
             <joint_properties friction="0.0" />
         </joint>
     </xacro:macro>

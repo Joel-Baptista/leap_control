@@ -56,6 +56,10 @@ colcon build --symlink-install
 source install/setup.bash
 ```
 
+## Joint States
+
+The joint state limits in the URDF severely limit LEAP hand's movement. The choice of these values goes beyond collision checking and tries to endow the robotic hand with more anthropomorphic and restrictions. 
+
 ## Usage
 
 ### Convert URDF to Proto

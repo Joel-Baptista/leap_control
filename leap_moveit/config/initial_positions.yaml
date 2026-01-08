@@ -1,18 +1,18 @@
 # Default initial positions for leap's ros2_control fake system
 
 initial_positions:
-  index_pip_flex_joint: 0
-  index_pip_abb_joint: 0
-  index_mcp_joint: 0
   index_dip_joint: 0
-  middle_pip_flex_joint: 0
-  middle_pip_abb_joint: 0
-  middle_mcp_joint: 0
+  index_mcp_joint: 0
+  index_pip_abb_joint: 0
+  index_pip_flex_joint: 0
   middle_dip_joint: 0
-  ring_pip_flex_joint: 0
-  ring_pip_abb_joint: 0
-  ring_mcp_joint: 0
+  middle_mcp_joint: 0
+  middle_pip_abb_joint: 0
+  middle_pip_flex_joint: 0
   ring_dip_joint: 0
+  ring_mcp_joint: 0
+  ring_pip_abb_joint: 0
+  ring_pip_flex_joint: 0
   thumb_cmc_abb_joint: 0
   thumb_cmc_flex_joint: 0
   thumb_ip_joint: 0

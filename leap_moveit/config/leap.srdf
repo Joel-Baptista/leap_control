@@ -59,8 +59,8 @@
         <joint name="ring_mcp_joint" value="0"/>
         <joint name="ring_pip_abb_joint" value="0"/>
         <joint name="ring_pip_flex_joint" value="0"/>
-        <joint name="thumb_cmc_abb_joint" value="0.9063"/>
-        <joint name="thumb_cmc_flex_joint" value="-1.57"/>
+        <joint name="thumb_cmc_abb_joint" value="0.8157"/>
+        <joint name="thumb_cmc_flex_joint" value="1.57"/>
         <joint name="thumb_ip_joint" value="0.6703"/>
         <joint name="thumb_mcp_joint" value="1.3519"/>
     </group_state>
@@ -78,7 +78,7 @@
         <joint name="ring_pip_abb_joint" value="0"/>
         <joint name="ring_pip_flex_joint" value="1.5834"/>
         <joint name="thumb_cmc_abb_joint" value="2.04"/>
-        <joint name="thumb_cmc_flex_joint" value="-2.1171"/>
+        <joint name="thumb_cmc_flex_joint" value="1.0935"/>
         <joint name="thumb_ip_joint" value="0.2789"/>
         <joint name="thumb_mcp_joint" value="0.9066"/>
     </group_state>
@@ -96,7 +96,7 @@
         <joint name="ring_pip_abb_joint" value="0"/>
         <joint name="ring_pip_flex_joint" value="1.5834"/>
         <joint name="thumb_cmc_abb_joint" value="2.094"/>
-        <joint name="thumb_cmc_flex_joint" value="-1.5743"/>
+        <joint name="thumb_cmc_flex_joint" value="1.5743"/>
         <joint name="thumb_ip_joint" value="0.2789"/>
         <joint name="thumb_mcp_joint" value="0.9066"/>
     </group_state>
@@ -107,57 +107,35 @@
     <end_effector name="index_ee" parent_link="index_distal_phalanx" group="hand"/>
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
     <disable_collisions link1="index_distal_phalanx" link2="index_middle_phalanx" reason="Adjacent"/>
-    <disable_collisions link1="index_distal_phalanx" link2="ring_proximal_phalanx_2" reason="Never"/>
     <disable_collisions link1="index_middle_phalanx" link2="index_proximal_phalanx_2" reason="Adjacent"/>
     <disable_collisions link1="index_middle_phalanx" link2="ring_proximal_phalanx_1" reason="Never"/>
-    <disable_collisions link1="index_middle_phalanx" link2="ring_proximal_phalanx_2" reason="Never"/>
     <disable_collisions link1="index_proximal_phalanx_1" link2="index_proximal_phalanx_2" reason="Adjacent"/>
     <disable_collisions link1="index_proximal_phalanx_1" link2="middle_proximal_phalanx_1" reason="Never"/>
     <disable_collisions link1="index_proximal_phalanx_1" link2="palm_lower" reason="Adjacent"/>
     <disable_collisions link1="index_proximal_phalanx_1" link2="ring_middle_phalanx" reason="Never"/>
     <disable_collisions link1="index_proximal_phalanx_1" link2="ring_proximal_phalanx_1" reason="Never"/>
     <disable_collisions link1="index_proximal_phalanx_1" link2="ring_proximal_phalanx_2" reason="Never"/>
-    <disable_collisions link1="index_proximal_phalanx_1" link2="thumb_semi_palm_1" reason="Never"/>
-    <disable_collisions link1="index_proximal_phalanx_1" link2="thumb_semi_palm_2" reason="Never"/>
     <disable_collisions link1="index_proximal_phalanx_2" link2="middle_proximal_phalanx_1" reason="Never"/>
-    <disable_collisions link1="index_proximal_phalanx_2" link2="palm_lower" reason="Never"/>
-    <disable_collisions link1="index_proximal_phalanx_2" link2="ring_distal_phalanx" reason="Never"/>
-    <disable_collisions link1="index_proximal_phalanx_2" link2="ring_middle_phalanx" reason="Never"/>
     <disable_collisions link1="index_proximal_phalanx_2" link2="ring_proximal_phalanx_1" reason="Never"/>
     <disable_collisions link1="index_proximal_phalanx_2" link2="ring_proximal_phalanx_2" reason="Never"/>
-    <disable_collisions link1="index_proximal_phalanx_2" link2="thumb_semi_palm_1" reason="Never"/>
-    <disable_collisions link1="index_proximal_phalanx_2" link2="thumb_semi_palm_2" reason="Never"/>
     <disable_collisions link1="middle_distal_phalanx" link2="middle_middle_phalanx" reason="Adjacent"/>
     <disable_collisions link1="middle_middle_phalanx" link2="middle_proximal_phalanx_2" reason="Adjacent"/>
     <disable_collisions link1="middle_proximal_phalanx_1" link2="middle_proximal_phalanx_2" reason="Adjacent"/>
     <disable_collisions link1="middle_proximal_phalanx_1" link2="palm_lower" reason="Adjacent"/>
     <disable_collisions link1="middle_proximal_phalanx_1" link2="ring_proximal_phalanx_1" reason="Never"/>
-    <disable_collisions link1="middle_proximal_phalanx_1" link2="thumb_middle_phalanx" reason="Never"/>
-    <disable_collisions link1="middle_proximal_phalanx_1" link2="thumb_semi_palm_1" reason="Never"/>
-    <disable_collisions link1="middle_proximal_phalanx_1" link2="thumb_semi_palm_2" reason="Never"/>
-    <disable_collisions link1="middle_proximal_phalanx_2" link2="palm_lower" reason="Never"/>
     <disable_collisions link1="middle_proximal_phalanx_2" link2="ring_proximal_phalanx_1" reason="Never"/>
-    <disable_collisions link1="middle_proximal_phalanx_2" link2="thumb_semi_palm_1" reason="Never"/>
-    <disable_collisions link1="middle_proximal_phalanx_2" link2="thumb_semi_palm_2" reason="Never"/>
     <disable_collisions link1="palm_lower" link2="ring_proximal_phalanx_1" reason="Adjacent"/>
-    <disable_collisions link1="palm_lower" link2="ring_proximal_phalanx_2" reason="Never"/>
     <disable_collisions link1="palm_lower" link2="thumb_middle_phalanx" reason="Default"/>
     <disable_collisions link1="palm_lower" link2="thumb_semi_palm_1" reason="Adjacent"/>
     <disable_collisions link1="palm_lower" link2="thumb_semi_palm_2" reason="Default"/>
     <disable_collisions link1="ring_distal_phalanx" link2="ring_middle_phalanx" reason="Adjacent"/>
-    <disable_collisions link1="ring_distal_phalanx" link2="thumb_semi_palm_1" reason="Never"/>
     <disable_collisions link1="ring_middle_phalanx" link2="ring_proximal_phalanx_2" reason="Adjacent"/>
-    <disable_collisions link1="ring_middle_phalanx" link2="thumb_semi_palm_1" reason="Never"/>
-    <disable_collisions link1="ring_middle_phalanx" link2="thumb_semi_palm_2" reason="Never"/>
     <disable_collisions link1="ring_proximal_phalanx_1" link2="ring_proximal_phalanx_2" reason="Adjacent"/>
-    <disable_collisions link1="ring_proximal_phalanx_1" link2="thumb_middle_phalanx" reason="Never"/>
     <disable_collisions link1="ring_proximal_phalanx_1" link2="thumb_semi_palm_1" reason="Never"/>
     <disable_collisions link1="ring_proximal_phalanx_1" link2="thumb_semi_palm_2" reason="Never"/>
-    <disable_collisions link1="ring_proximal_phalanx_2" link2="thumb_middle_phalanx" reason="Never"/>
     <disable_collisions link1="ring_proximal_phalanx_2" link2="thumb_semi_palm_1" reason="Never"/>
     <disable_collisions link1="ring_proximal_phalanx_2" link2="thumb_semi_palm_2" reason="Never"/>
     <disable_collisions link1="thumb_distal_phalanx" link2="thumb_middle_phalanx" reason="Adjacent"/>
-    <disable_collisions link1="thumb_distal_phalanx" link2="thumb_semi_palm_2" reason="Never"/>
     <disable_collisions link1="thumb_middle_phalanx" link2="thumb_semi_palm_2" reason="Adjacent"/>
     <disable_collisions link1="thumb_semi_palm_1" link2="thumb_semi_palm_2" reason="Adjacent"/>
 </robot>
