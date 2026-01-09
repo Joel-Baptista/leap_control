@@ -53,6 +53,9 @@ class LeapWebotsDriver:
         self.__motor_14 = self.__robot.getDevice("thumb_mcp_joint")
         self.__motor_15 = self.__robot.getDevice("thumb_ip_joint")
 
+        self.__palm_touch_sensor = self.__robot.getDevice("palm_touch_sensor")
+        self.__palm_touch_sensor.enable(1)
+
         self.motor_list = [
             self.__motor_0,
             self.__motor_1,
@@ -142,8 +145,13 @@ class LeapWebotsDriver:
         ]
 
         interp_positions = []
+        if time_from_start[0] != 0:
+            positions = [self.joint_states_belief] + positions
+            interp_positions.append(self.joint_states_belief)
+            time_from_start = [0.0] + time_from_start
 
         for i in range(0, len(positions) - 1):
+            self.__node.get_logger().info(f"i: {i}")
             interp_positions.append(positions[i])
             N = math.floor((time_from_start[i+1] - time_from_start[i]) * hz)
             for j in range(0, N):                
@@ -164,6 +172,8 @@ class LeapWebotsDriver:
     def step(self):
         rclpy.spin_once(self.__node, timeout_sec=0)
         # The driver spins the executor; just apply your control here
+
+        # self.__node.get_logger().info(f"{self.__palm_touch_sensor.getValue()}")
 
         if not (self.current_goals is None or self.goals_id is None):
 

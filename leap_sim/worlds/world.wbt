@@ -7,7 +7,7 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/project
 
 WorldInfo {
   title "LEAP WORLD — pkg leap_sim/worlds/world.wbt"
-  basicTimeStep 16
+  basicTimeStep 4
   ERP 0.1 # (Error Reduction Parameter) 
   CFM 1e-2 # (Constraint Force Mixing)
 

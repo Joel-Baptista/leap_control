@@ -56,6 +56,7 @@ setup(
             'leap_control_driver = leap_control.leap_control_driver:main',
             'leap_moveit_planner = leap_control.leap_moveit_planner:main',
             'fsr_sensor_reader = leap_control.fsr_sensor_reader:main',
+            'movement_demo = leap_control.movement_demo:main',
         ],
     },
 )
