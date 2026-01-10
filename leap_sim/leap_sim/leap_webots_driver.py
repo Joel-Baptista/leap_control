@@ -147,7 +147,6 @@ class LeapWebotsDriver:
         interp_positions = []
         if time_from_start[0] != 0:
             positions = [self.joint_states_belief] + positions
-            interp_positions.append(self.joint_states_belief)
             time_from_start = [0.0] + time_from_start
 
         for i in range(0, len(positions) - 1):
@@ -163,6 +162,9 @@ class LeapWebotsDriver:
         self.current_goals = interp_positions
         self.goals_id = 0
 
+        self.__node.get_logger().info(f"Last Interp Goal: {list(self.current_goals[-1])}")
+        self.__node.get_logger().info(f"Last Interp Goal: {list(self.joint_states_belief)}")
+
         self.__node.get_logger().info(f"self.goals_id: {self.goals_id}")
         self.__node.get_logger().info(f"len(self.current_goals): {len(self.current_goals)}")
 
@@ -173,7 +175,7 @@ class LeapWebotsDriver:
         rclpy.spin_once(self.__node, timeout_sec=0)
         # The driver spins the executor; just apply your control here
 
-        # self.__node.get_logger().info(f"{self.__palm_touch_sensor.getValue()}")
+        self.__node.get_logger().info(f"{self.__palm_touch_sensor.getValue()}")
 
         if not (self.current_goals is None or self.goals_id is None):
 
@@ -182,7 +184,7 @@ class LeapWebotsDriver:
             if self.goals_id < len(self.current_goals):
                 joints = self.current_goals[self.goals_id]
 
-                self.__node.get_logger().info(f"Joints: {self.goals_id}")
+                # self.__node.get_logger().info(f"Joints: {self.goals_id}")
                 self.goals_id += 1
                 for i, n in enumerate(names):
                     idx = MOTOR_MAPPING[n]

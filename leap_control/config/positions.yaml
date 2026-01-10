@@ -28,23 +28,23 @@ test_palm_sensor_pos:
   ring_mcp_joint: 0.0
   ring_pip_abb_joint: 0.0
   ring_pip_flex_joint: 0.0
-  thumb_cmc_abb_joint: 1.5588
-  thumb_cmc_flex_joint: 1.4145
-  thumb_ip_joint: 1.7453
-  thumb_mcp_joint: 0.0
+  thumb_cmc_abb_joint: 1.0532
+  thumb_cmc_flex_joint: 1.4796
+  thumb_mcp_joint: 2.0
+  thumb_ip_joint: 1.2604
 test_fingers_sensor_pos:
-  index_dip_joint: 1.7253
-  index_mcp_joint: 0.0990
-  index_pip_abb_joint: 1.5311
-  index_pip_flex_joint: 0.0550
-  middle_dip_joint: 1.7253
-  middle_mcp_joint: 0.0990
+  index_dip_joint: 0
+  index_mcp_joint: 1.5951
+  index_pip_abb_joint: 0
+  index_pip_flex_joint: 1.8699
+  middle_dip_joint: 0
+  middle_mcp_joint: 1.5951
   middle_pip_abb_joint: 1.5311
-  middle_pip_flex_joint: 0.0550
+  middle_pip_flex_joint: 1.8699
   ring_dip_joint: 1.7253
-  ring_mcp_joint: 0.0990
+  ring_mcp_joint: 1.5951
   ring_pip_abb_joint: 1.5311
-  ring_pip_flex_joint: 0.0550
+  ring_pip_flex_joint: 1.8699
   thumb_cmc_abb_joint: 1.3193
   thumb_cmc_flex_joint: 1.5707
   thumb_ip_joint: 1.7453

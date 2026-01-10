@@ -9,10 +9,7 @@ WorldInfo {
   title "LEAP WORLD — pkg leap_sim/worlds/world.wbt"
   basicTimeStep 4
   ERP 0.1 # (Error Reduction Parameter) 
-  CFM 1e-2 # (Constraint Force Mixing)
-
-  linearDamping 0.02
-  angularDamping 0.04
+  CFM 1e-4 # (Constraint Force Mixing)
 
   contactProperties [
     ContactProperties {
@@ -43,7 +40,7 @@ CircleArena {
 }
 
 Leap {
-  translation     0 0 0.1
+  translation     0 0 0.05
   rotation        0 3.14 0 3.14
   name            "Leap"  # Is `Robot.name`.
   controller      "<extern>"   # Is `Robot.controller`.
@@ -52,11 +49,11 @@ Leap {
   customData      ""       # Is `Robot.customData`.
   supervisor      FALSE    # Is `Robot.supervisor`.
   synchronization TRUE     # Is `Robot.synchronization`.
-  selfCollision   TRUE    # Is `Robot.selfCollision`.
-  motorPID          20 0 0     # (P, I, D)
-  motorMaxVelocity  5.0       # rad/s
+  selfCollision   FALSE    # Is `Robot.selfCollision`.
+  motorPID          100 0 0     # (P, I, D)
+  motorMaxVelocity  8.84      # rad/s
   motorMaxTorque    0.3       # N·m
-  motorMinPosition -3.14      # rad
-  motorMaxPosition  3.14      # rad
+  jointSpringConstant    0.0    
+  jointDampingConstant    0.0   
   
 }
