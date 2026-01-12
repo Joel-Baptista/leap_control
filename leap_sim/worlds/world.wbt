@@ -7,25 +7,28 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/project
 
 WorldInfo {
   title "LEAP WORLD — pkg leap_sim/worlds/world.wbt"
-  basicTimeStep 4
-  ERP 0.1 # (Error Reduction Parameter) 
-  CFM 1e-4 # (Constraint Force Mixing)
+  basicTimeStep 2
+  ERP 0.01 # (Error Reduction Parameter) 
+  CFM 1e-3 # (Constraint Force Mixing)
 
   contactProperties [
     ContactProperties {
-      material1 "default"
-      material2 "default"
-
-      coulombFriction 0.6
-      bounce 0
-      bounceVelocity 100
-
-      softERP 0.1
-      softCFM 1e-3      
-      maxContactJoints 10
+      material1          "default"                                                                                             # any string
+      material2          "default"                                                                                             # any string
+      coulombFriction    1                                                                                                     # [0, inf)
+      frictionRotation   0 0                                                                                                   # any positive vector
+      rollingFriction    0 0 0                                                                                                 # rolling/spinning friction
+      bounce             0.5                                                                                                   # [0, 1]
+      bounceVelocity     0.1                                                                                                  # [0, inf)
+      forceDependentSlip 0                                                                                                     # [0, inf)
+      softERP            0.2                                                                                                   # [0, 1]
+      softCFM            0.1                                                                                                 # (0, inf)
+      maxContactJoints   15                                                                                                    # (0, inf)
     }
   ]
 }
+
+
 
 Viewpoint {
   orientation -0.33185733874619844 -0.09874274160469809 0.9381474178937331 3.686018050088086
@@ -49,10 +52,10 @@ Leap {
   customData      ""       # Is `Robot.customData`.
   supervisor      FALSE    # Is `Robot.supervisor`.
   synchronization TRUE     # Is `Robot.synchronization`.
-  selfCollision   FALSE    # Is `Robot.selfCollision`.
-  motorPID          100 0 0     # (P, I, D)
+  selfCollision   TRUE    # Is `Robot.selfCollision`.
+  motorPID          200 0 0     # (P, I, D)
   motorMaxVelocity  8.84      # rad/s
-  motorMaxTorque    0.3       # N·m
+  motorMaxTorque    0.95       # N·m
   jointSpringConstant    0.0    
   jointDampingConstant    0.0   
   

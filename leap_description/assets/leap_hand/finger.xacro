@@ -7,7 +7,7 @@
                     xyz="0.008407 0.007766 0.014657"
                     rpy="0 0 0" />
                 <geometry>
-                    <mesh filename="package://leap_description/assets/leap_hand/proximal_phalanx_1.stl" />
+                    <mesh filename="package://leap_description/assets/leap_hand/proximal_phalanx_1_2k.stl" />
                 </geometry>
                 <material name="proximal_phalanx_1_material">
                     <color
@@ -19,7 +19,7 @@
                     xyz="0.008407 0.007766 0.014657"
                     rpy="0 0 0" />
                 <geometry>
-                    <mesh filename="package://leap_description/assets/leap_hand/proximal_phalanx_1_collision.stl" />
+                    <mesh filename="package://leap_description/assets/leap_hand/proximal_phalanx_1_2k_collision.stl" />
                 </geometry>
             </collision>
             <collision>
@@ -44,7 +44,7 @@
                     xyz="0.009643 0.0003 0.000784"
                     rpy="-1.570796326794896558 -1.570796326794896336 0" />
                 <geometry>
-                    <mesh filename="package://leap_description/assets/leap_hand/proximal_phalanx_2.stl" />
+                    <mesh filename="package://leap_description/assets/leap_hand/proximal_phalanx_2_2k.stl" />
                 </geometry>
                 <material name="proximal_phalanx_2_material">
                     <color
@@ -56,7 +56,7 @@
                     xyz="0.009643 0.0003 0.000784"
                     rpy="-1.570796326794896558 -1.570796326794896336 0" />
                 <geometry>
-                    <mesh filename="package://leap_description/assets/leap_hand/proximal_phalanx_2_collision.stl" />
+                    <mesh filename="package://leap_description/assets/leap_hand/proximal_phalanx_2_2k_collision.stl" />
                 </geometry>
             </collision>
             <inertial>
@@ -73,7 +73,7 @@
                     xyz="0.021133 -0.008432 0.009785"
                     rpy="-3.141592653589793116 0 0" />
                 <geometry>
-                    <mesh filename="package://leap_description/assets/leap_hand/middle_phalanx.stl" />
+                    <mesh filename="package://leap_description/assets/leap_hand/middle_phalanx_2k.stl" />
                 </geometry>
                 <material name="middle_phalanx_material">
                     <color
@@ -85,7 +85,7 @@
                     xyz="0.021133 -0.008432 0.009785"
                     rpy="-3.141592653589793116 0 0" />
                 <geometry>
-                    <mesh filename="package://leap_description/assets/leap_hand/middle_phalanx_collision.stl" />
+                    <mesh filename="package://leap_description/assets/leap_hand/middle_phalanx_2k_collision.stl" />
                 </geometry>
             </collision>
             <inertial>
@@ -102,7 +102,7 @@
                     xyz="0.0132864 -0.006114 0.0145"
                     rpy="3.141592653589793116 0 0" />
                 <geometry>
-                    <mesh filename="package://leap_description/assets/leap_hand/distal_phalanx.stl" />
+                    <mesh filename="package://leap_description/assets/leap_hand/distal_phalanx_1k.stl" />
                 </geometry>
                 <material name="distal_phalanx_material">
                     <color
@@ -114,7 +114,7 @@
                     xyz="0.013286 -0.006114 0.0145"
                     rpy="3.141592653589793116 0 0" />
                 <geometry>
-                    <mesh filename="package://leap_description/assets/leap_hand/distal_phalanx_collision.stl" />
+                    <mesh filename="package://leap_description/assets/leap_hand/distal_phalanx_1k_collision.stl" />
                 </geometry>
             </collision>
             <inertial>

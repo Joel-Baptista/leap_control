@@ -21,10 +21,6 @@ def generate_launch_description():
         )
         .robot_description(file_path="config/leap.urdf.xacro")
         .trajectory_execution(file_path="config/moveit_controllers.yaml")
-        .moveit_cpp(
-            file_path=get_package_share_directory("leap_moveit")
-            + "/config/hand_planning.yaml"
-        )
         .to_moveit_configs()
     )
 
@@ -117,9 +113,9 @@ def generate_launch_description():
             moveit_py_node,
             robot_state_publisher,
             move_group,
-            # ros2_control_node,
+            ros2_control_node,
             rviz_node,
             static_tf,
         ]
-        # + load_controllers
+        + load_controllers
     )

@@ -55,6 +55,22 @@ class LeapWebotsDriver:
 
         self.__palm_touch_sensor = self.__robot.getDevice("palm_touch_sensor")
         self.__palm_touch_sensor.enable(1)
+        self.__index_fingertip_touch_sensor = self.__robot.getDevice("index_fingertip_touch_sensor")
+        self.__index_fingertip_touch_sensor.enable(1)
+        self.__middle_fingertip_touch_sensor = self.__robot.getDevice("middle_fingertip_touch_sensor")
+        self.__middle_fingertip_touch_sensor.enable(1)
+        self.__ring_fingertip_touch_sensor = self.__robot.getDevice("ring_fingertip_touch_sensor")
+        self.__ring_fingertip_touch_sensor.enable(1)
+        self.__thumb_cmc_flex_joint_sensor = self.__robot.getDevice("thumb_cmc_flex_joint_sensor")
+        self.__thumb_cmc_flex_joint_sensor.enable(1)
+
+        self.touch_sensor = [
+            self.__palm_touch_sensor,
+            self.__index_fingertip_touch_sensor,
+            self.__middle_fingertip_touch_sensor,
+            self.__ring_fingertip_touch_sensor,
+            self.__thumb_cmc_flex_joint_sensor
+        ]
 
         self.motor_list = [
             self.__motor_0,
@@ -87,7 +103,7 @@ class LeapWebotsDriver:
         self.joint_states = None
         self.joint_names = None
 
-        self.joint_states_belief = [0.0] * 16 
+        self.joint_states_belief = [0.0] * 16
 
         self.motor_names = list(MOTOR_MAPPING.keys())
 
@@ -103,7 +119,6 @@ class LeapWebotsDriver:
         # )
         # self.broadcaster = TransformBroadcaster(self.__node, qos=qos_profile)
         # self.timer = self.__node.create_timer(1 / 30, self.update_states)
-
 
         time.sleep(4.0)
         self._action_server = ActionServer(
@@ -152,9 +167,9 @@ class LeapWebotsDriver:
         for i in range(0, len(positions) - 1):
             self.__node.get_logger().info(f"i: {i}")
             interp_positions.append(positions[i])
-            N = math.floor((time_from_start[i+1] - time_from_start[i]) * hz)
-            for j in range(0, N):                
-                curr_pos = positions[i] + (positions[i+1] - positions[i]) * (j / N)
+            N = math.floor((time_from_start[i + 1] - time_from_start[i]) * hz)
+            for j in range(0, N):
+                curr_pos = positions[i] + (positions[i + 1] - positions[i]) * (j / N)
                 interp_positions.append(curr_pos)
 
         interp_positions.append(positions[-1])
@@ -162,11 +177,17 @@ class LeapWebotsDriver:
         self.current_goals = interp_positions
         self.goals_id = 0
 
-        self.__node.get_logger().info(f"Last Interp Goal: {list(self.current_goals[-1])}")
-        self.__node.get_logger().info(f"Last Interp Goal: {list(self.joint_states_belief)}")
+        self.__node.get_logger().info(
+            f"Last Interp Goal: {list(self.current_goals[-1])}"
+        )
+        self.__node.get_logger().info(
+            f"Last Interp Goal: {list(self.joint_states_belief)}"
+        )
 
         self.__node.get_logger().info(f"self.goals_id: {self.goals_id}")
-        self.__node.get_logger().info(f"len(self.current_goals): {len(self.current_goals)}")
+        self.__node.get_logger().info(
+            f"len(self.current_goals): {len(self.current_goals)}"
+        )
 
         goal_handle.succeed()
         return FollowJointTrajectory.Result()
@@ -175,7 +196,12 @@ class LeapWebotsDriver:
         rclpy.spin_once(self.__node, timeout_sec=0)
         # The driver spins the executor; just apply your control here
 
-        self.__node.get_logger().info(f"{self.__palm_touch_sensor.getValue()}")
+        sensor_values = []
+
+        for s in self.touch_sensor:
+            sensor_values.append(s.getValue())
+
+        self.__node.get_logger().info(f"{sensor_values}")
 
         if not (self.current_goals is None or self.goals_id is None):
 
