@@ -104,6 +104,8 @@ class LeapWebotsDriver:
         self.joint_names = None
 
         self.joint_states_belief = [0.0] * 16
+        self.joint_vel_belief = [0.0] * 16
+        self.joint_torques_belief = [0.0] * 16
 
         self.motor_names = list(MOTOR_MAPPING.keys())
 
@@ -114,11 +116,11 @@ class LeapWebotsDriver:
         self.__node = rclpy.create_node("leap_webots_driver")
         # Create subscription on the existing node (NO rclpy.init, NO extra node)
         qos_profile = QoSProfile(depth=10)
-        # self.joint_pub = self.__node.create_publisher(
-        #     JointState, "joint_states", qos_profile
-        # )
-        # self.broadcaster = TransformBroadcaster(self.__node, qos=qos_profile)
-        # self.timer = self.__node.create_timer(1 / 30, self.update_states)
+        self.joint_pub = self.__node.create_publisher(
+            JointState, "joint_states", qos_profile
+        )
+        self.broadcaster = TransformBroadcaster(self.__node, qos=qos_profile)
+        self.timer = self.__node.create_timer(1 / 30, self.update_states)
 
         time.sleep(4.0)
         self._action_server = ActionServer(
@@ -132,6 +134,18 @@ class LeapWebotsDriver:
         self.__node.get_logger().info("LeapWebotsDriver initialized")
 
     def update_states(self):
+
+        joint_state = JointState()
+
+        now = self.__node.get_clock().now()
+        joint_state.header.stamp = now.to_msg()
+        joint_state.name = self.motor_names
+        joint_state.position = self.joint_states_belief
+        joint_state.effort = self.joint_torques_belief
+
+        self.joint_pub.publish(joint_state)    
+    
+    def update_sensors(self):
 
         joint_state = JointState()
 
@@ -201,7 +215,7 @@ class LeapWebotsDriver:
         for s in self.touch_sensor:
             sensor_values.append(s.getValue())
 
-        self.__node.get_logger().info(f"{sensor_values}")
+        # self.__node.get_logger().info(f"{sensor_values}")
 
         if not (self.current_goals is None or self.goals_id is None):
 
@@ -216,3 +230,4 @@ class LeapWebotsDriver:
                     idx = MOTOR_MAPPING[n]
                     self.motor_list[idx].setPosition(joints[i])
                     self.joint_states_belief[idx] = joints[i]
+                    self.joint_torques_belief[idx] = self.motor_list[idx].getTorqueFeedback()

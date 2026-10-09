@@ -36,9 +36,20 @@ class FSRSensorNode(Node):
                     self.get_logger().warn(f'Esperados 5 valores, recebido: {line}')
                     return
 
+                m = 0.810298
+                b = 2.4166
+
+
+
                 values = [float(v) for v in values_str]
+                
+                values_force = []
+                for v in values:
+                    f = ((22 / 10 ** b) * ((3.3 - v) / 3.3)) ** (-1 / m)
+                    values_force.append(f)
+                
                 msg = Float32MultiArray()
-                msg.data = values
+                msg.data = values_force
                 self.publisher_.publish(msg)
 
                 # Guardar no CSV com timestamp

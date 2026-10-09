@@ -1,5 +1,8 @@
 # MoveIt uses this configuration for controller management
 
+planning_pipelines:
+  pipeline_names: ["ompl"]
+
 moveit_controller_manager: moveit_simple_controller_manager/MoveItSimpleControllerManager
 
 moveit_simple_controller_manager:
