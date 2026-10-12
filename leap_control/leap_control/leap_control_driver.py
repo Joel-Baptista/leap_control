@@ -60,9 +60,9 @@ class LeapDriver(LeapBase):
         operating_mode = self.get_rosparam("operating_mode", "current-based position")
 
         self.pos_res = self.get_rosparam("pos_res", 0.0015343541)
-        self.vel_res = self.get_rosparam("pos_res", 0.2288857142)
-        self.effort_res = self.get_rosparam("pos_res", 0.000517)
-        self.neutral_pos = self.get_rosparam("pos_res", 2048)
+        self.vel_res = self.get_rosparam("vel_res", 0.2288857142)
+        self.effort_res = self.get_rosparam("effort_res", 0.000517)
+        self.neutral_pos = self.get_rosparam("neutral_pos", 2048)
         
         pkg_share = get_package_share_directory('leap_control')
         dynamixel_yaml_file = os.path.join(pkg_share, 'config', 'dynamixel_address.yaml')

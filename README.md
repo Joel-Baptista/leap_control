@@ -94,9 +94,7 @@ ros2 launch leap_bringup real_demo.launch.py
 
 This will launch the Moveit planning pipeline and the `leap_control_driver.py` found at the *leap_control* package.
 
-You can also run `leap_control_driver.py` and `movement_demo.py` (found in *leap_control* package) to control LEAP without Moveit. 
-
-PS: There maybe be a step missing to connect LEAP with your computer outside ROS2, which needs to be documented!
+You can also run `leap_control_driver.py` and `movement_demo.py` (found in *leap_control* package) to control LEAP without Moveit. You can configure new positions in `leap_control/config/positions.yaml`
 
 ### Simulation
 
