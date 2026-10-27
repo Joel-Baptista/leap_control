@@ -2,7 +2,7 @@
 # license: Apache License 2.0
 # license url: http://www.apache.org/licenses/LICENSE-2.0
 # This is a proto file for Webots for the Leap
-# Extracted from: /home/joel/distrobox/ros2-ubuntu/leap_ws/src/leap_control/leap_description/urdf/robot.urdf
+# Extracted from: ../../../../../src/leap_control/leap_description/urdf/robot.urdf
 
 PROTO Leap [
   field  SFVec3f     translation     0 0 0
@@ -40,7 +40,7 @@ PROTO Leap [
               metalness 0
             }
             geometry DEF palm_lower Mesh {
-              url "/home/joel/distrobox/ros2-ubuntu/leap_ws/src/leap_control/leap_description/assets/leap_hand/palm_lower_3k.stl"
+              url "../../../../../src/leap_control/leap_description/assets/leap_hand/palm_lower_3k.stl"
             }
           }
           TouchSensor {
@@ -123,7 +123,7 @@ PROTO Leap [
                     metalness 0
                   }
                   geometry DEF proximal_phalanx_1 Mesh {
-                    url "/home/joel/distrobox/ros2-ubuntu/leap_ws/src/leap_control/leap_description/assets/leap_hand/proximal_phalanx_1_2k.stl"
+                    url "../../../../../src/leap_control/leap_description/assets/leap_hand/proximal_phalanx_1_2k.stl"
                   }
                 }
               ]
@@ -163,7 +163,7 @@ PROTO Leap [
                           metalness 0
                         }
                         geometry DEF proximal_phalanx_2 Mesh {
-                          url "/home/joel/distrobox/ros2-ubuntu/leap_ws/src/leap_control/leap_description/assets/leap_hand/proximal_phalanx_2_2k.stl"
+                          url "../../../../../src/leap_control/leap_description/assets/leap_hand/proximal_phalanx_2_2k.stl"
                         }
                       }
                     ]
@@ -203,7 +203,7 @@ PROTO Leap [
                                 metalness 0
                               }
                               geometry DEF middle_phalanx Mesh {
-                                url "/home/joel/distrobox/ros2-ubuntu/leap_ws/src/leap_control/leap_description/assets/leap_hand/middle_phalanx_2k.stl"
+                                url "../../../../../src/leap_control/leap_description/assets/leap_hand/middle_phalanx_2k.stl"
                               }
                             }
                           ]
@@ -241,7 +241,7 @@ PROTO Leap [
                                       metalness 0
                                     }
                                     geometry DEF distal_phalanx Mesh {
-                                      url "/home/joel/distrobox/ros2-ubuntu/leap_ws/src/leap_control/leap_description/assets/leap_hand/distal_phalanx_1k.stl"
+                                      url "../../../../../src/leap_control/leap_description/assets/leap_hand/distal_phalanx_1k.stl"
                                     }
                                   }
                                   TouchSensor {
@@ -291,7 +291,7 @@ PROTO Leap [
                               rotation 1.000000 0.000000 0.000000 3.141593
                               children [
                                 DEF distal_phalanx_collision Mesh {
-                                  url "/home/joel/distrobox/ros2-ubuntu/leap_ws/src/leap_control/leap_description/assets/leap_hand/distal_phalanx_1k_collision.stl"
+                                  url "../../../../../src/leap_control/leap_description/assets/leap_hand/distal_phalanx_1k_collision.stl"
                                 }
                               ]
                             }
@@ -313,7 +313,7 @@ PROTO Leap [
                         rotation -1.000000 0.000000 0.000000 3.141593
                         children [
                           DEF middle_phalanx_collision Mesh {
-                            url "/home/joel/distrobox/ros2-ubuntu/leap_ws/src/leap_control/leap_description/assets/leap_hand/middle_phalanx_2k_collision.stl"
+                            url "../../../../../src/leap_control/leap_description/assets/leap_hand/middle_phalanx_2k_collision.stl"
                           }
                         ]
                       }
@@ -335,7 +335,7 @@ PROTO Leap [
                   rotation -0.577350 -0.577350 -0.577350 2.094395
                   children [
                     DEF proximal_phalanx_2_collision Mesh {
-                      url "/home/joel/distrobox/ros2-ubuntu/leap_ws/src/leap_control/leap_description/assets/leap_hand/proximal_phalanx_2_2k_collision.stl"
+                      url "../../../../../src/leap_control/leap_description/assets/leap_hand/proximal_phalanx_2_2k_collision.stl"
                     }
                   ]
                 }
@@ -358,7 +358,7 @@ PROTO Leap [
                 translation 0.008407 0.007766 0.014657
                 children [
                   DEF proximal_phalanx_1_collision Mesh {
-                    url "/home/joel/distrobox/ros2-ubuntu/leap_ws/src/leap_control/leap_description/assets/leap_hand/proximal_phalanx_1_2k_collision.stl"
+                    url "../../../../../src/leap_control/leap_description/assets/leap_hand/proximal_phalanx_1_2k_collision.stl"
                   }
                 ]
               }
@@ -976,7 +976,7 @@ PROTO Leap [
                       Shape {
                         appearance USE thumb_semi_palm_2_material
                         geometry DEF thumb_semi_palm Mesh {
-                          url "/home/joel/distrobox/ros2-ubuntu/leap_ws/src/leap_control/leap_description/assets/leap_hand/thumb_semi_palm_1k.stl"
+                          url "../../../../../src/leap_control/leap_description/assets/leap_hand/thumb_semi_palm_1k.stl"
                         }
                       }
                     ]
@@ -1015,7 +1015,7 @@ PROTO Leap [
                                 metalness 0
                               }
                               geometry DEF thumb_middle_phalanx Mesh {
-                                url "/home/joel/distrobox/ros2-ubuntu/leap_ws/src/leap_control/leap_description/assets/leap_hand/thumb_middle_phalanx_3k.stl"
+                                url "../../../../../src/leap_control/leap_description/assets/leap_hand/thumb_middle_phalanx_3k.stl"
                               }
                             }
                           ]
@@ -1053,7 +1053,7 @@ PROTO Leap [
                                       metalness 0
                                     }
                                     geometry DEF thumb_distal_phalanx Mesh {
-                                      url "/home/joel/distrobox/ros2-ubuntu/leap_ws/src/leap_control/leap_description/assets/leap_hand/thumb_distal_phalanx_1k.stl"
+                                      url "../../../../../src/leap_control/leap_description/assets/leap_hand/thumb_distal_phalanx_1k.stl"
                                     }
                                   }
                                   TouchSensor {
@@ -1100,7 +1100,7 @@ PROTO Leap [
                               translation 0.062560 0.078460 0.048993
                               children [
                                 DEF thumb_distal_phalanx_collision Mesh {
-                                  url "/home/joel/distrobox/ros2-ubuntu/leap_ws/src/leap_control/leap_description/assets/leap_hand/thumb_distal_phalanx_1k_collision.stl"
+                                  url "../../../../../src/leap_control/leap_description/assets/leap_hand/thumb_distal_phalanx_1k_collision.stl"
                                 }
                               ]
                             }
@@ -1121,7 +1121,7 @@ PROTO Leap [
                         translation 0.043969 0.057953 -0.008629
                         children [
                           DEF thumb_middle_phalanx_collision Mesh {
-                            url "/home/joel/distrobox/ros2-ubuntu/leap_ws/src/leap_control/leap_description/assets/leap_hand/thumb_middle_phalanx_3k_collision.stl"
+                            url "../../../../../src/leap_control/leap_description/assets/leap_hand/thumb_middle_phalanx_3k_collision.stl"
                           }
                         ]
                       }
@@ -1143,7 +1143,7 @@ PROTO Leap [
                   rotation 1.000000 0.000000 0.000000 1.570796
                   children [
                     DEF thumb_semi_palm_collision Mesh {
-                      url "/home/joel/distrobox/ros2-ubuntu/leap_ws/src/leap_control/leap_description/assets/leap_hand/thumb_semi_palm_1k_collision.stl"
+                      url "../../../../../src/leap_control/leap_description/assets/leap_hand/thumb_semi_palm_1k_collision.stl"
                     }
                   ]
                 }
@@ -1184,7 +1184,7 @@ PROTO Leap [
       translation -0.020095 0.025758 -0.034722
       children [
         DEF palm_lower_collision Mesh {
-          url "/home/joel/distrobox/ros2-ubuntu/leap_ws/src/leap_control/leap_description/assets/leap_hand/palm_lower_3k_collision.stl"
+          url "../../../../../src/leap_control/leap_description/assets/leap_hand/palm_lower_3k_collision.stl"
         }
       ]
     }
