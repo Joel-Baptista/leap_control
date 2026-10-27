@@ -39,7 +39,15 @@ Here, we give a generic description of each package. Each package has a README.m
 ### Prerequisites
 - OS: Ubuntu 24
 - ROS2 Kilted
+- [Moveit2](https://docs.ros.org/en/jazzy/Installation.html)
 
+To install moveit2, just run:
+```
+sudo apt install ros-kilted-moveit
+sudo apt install ros-kilted-moveitpy
+sudo apt install ros-kilted-joint-trajectory-controller
+sudo apt install ros-kilted-joint-state-broadcaster
+```
 
 Some specific use cases may require the installation of the following python packages:
 - [urdf2webots](https://pypi.org/project/urdf2webots/)
@@ -51,7 +59,7 @@ These python dependencies are not required to utilize the repository, but may be
 # ROS 2
 source /opt/ros/kilted/setup.sh
 mkdir -p ~/leap_ws/src
-cd ~/ros_ws/src
+cd ~/leap_ws/src
 git clone git@github.com:Joel-Baptista/leap_control.git
 cd ~/leap_ws
 rosdep install --from-paths . --ignore-src -r -y
